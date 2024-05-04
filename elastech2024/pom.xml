@@ -8,10 +8,10 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ladyTech</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.ladytech</groupId>
+	<artifactId>elastech2024</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>elastech2024</name>
 	<description>Lady Tech project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
