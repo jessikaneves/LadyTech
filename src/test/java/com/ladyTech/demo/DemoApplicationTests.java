@@ -1,10 +1,10 @@
-package com.elastech.Elastech;
+package com.ladyTech.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ElastechApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {

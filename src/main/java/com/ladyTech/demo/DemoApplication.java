@@ -1,13 +1,13 @@
-package com.elastech.Elastech;
+package com.ladyTech.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ElastechApplication {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ElastechApplication.class, args);
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
