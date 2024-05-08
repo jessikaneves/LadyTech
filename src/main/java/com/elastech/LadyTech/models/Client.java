@@ -6,7 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.security.Timestamp;
 
 @Entity
-public class User {
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,7 +28,7 @@ public class User {
     @Column
     private boolean active;
 
-    public User() {
+    public Client() {
     }
 
     public Long getId() {
