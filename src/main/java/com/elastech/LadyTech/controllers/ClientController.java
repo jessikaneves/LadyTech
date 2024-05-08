@@ -1,17 +1,15 @@
-package com.elastech.LadyTech.controller;
+package com.elastech.LadyTech.controllers;
 
-import com.elastech.LadyTech.models.User;
-import com.elastech.LadyTech.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.elastech.LadyTech.repositories.ClientRepository;
 
 @RestController
 @RequestMapping(value = "/user")
-public class UserController {
+public class ClientController {
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository clientRepository;
 
 }
