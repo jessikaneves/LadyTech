@@ -18,7 +18,7 @@ public class Technical {
     // chamando o conjunto enum UserType
     @Column
     @Enumerated(EnumType.STRING)
-    private UserType userType = UserType.TECNICO;
+    private UserType userType = UserType.TECHNICAL;
 
     public Technical() {
     }
