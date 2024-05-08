@@ -1,6 +1,8 @@
 package com.elastech.LadyTech.controller;
 
+import com.elastech.LadyTech.models.Called;
 import com.elastech.LadyTech.models.Technical;
+import com.elastech.LadyTech.repositories.CalledRepository;
 import com.elastech.LadyTech.repositories.TechnicalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class TechnicalController {
+    @Autowired
+    private CalledRepository calledRepository;
     @Autowired
     private TechnicalRepository tecnicoRepository;
     //visualizar todos os usuario com GET localhost:8080/tecnico
@@ -48,5 +52,23 @@ public class TechnicalController {
                 //antes de deletar verificar se usuario existe
                 .orElseThrow(()-> new RuntimeException(("Tecnico não encontrado")));
         return "Técnico deletado com sucesso";
+    }
+    //Criar chamado
+    @GetMapping
+    private List<Called> getAllCalled(){
+        return calledRepository.findAll();
+    }
+    @GetMapping("{/id_call}")
+    private Called getCalledById(@PathVariable long id_call){
+        return calledRepository.findById(id_call)
+                .orElseThrow(()->new RuntimeException("Chamado não encontrado"));
+    }
+    @PutMapping("/{id_call}")
+    private Called updateCalled(@PathVariable long id_call, @RequestBody Called calledupdate){
+        Called called = calledRepository.findById(id_call)
+                .orElseThrow(()-> new RuntimeException("Técnico não encontrado"));
+        // set em cada um dos atributos autalizados com novo valor do tecnicoupdate
+        called.setStatus(calledupdate.getStatus());
+        return calledRepository.save(called);
     }
 }
