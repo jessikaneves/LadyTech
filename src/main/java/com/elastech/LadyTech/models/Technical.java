@@ -3,7 +3,7 @@ package com.elastech.LadyTech.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Tecnico {
+public class Technical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_tec;
@@ -20,7 +20,7 @@ public class Tecnico {
     @Enumerated(EnumType.STRING)
     private UserType userType = UserType.TECNICO;
 
-    public Tecnico() {
+    public Technical() {
     }
 
     public long getId_tec() {
