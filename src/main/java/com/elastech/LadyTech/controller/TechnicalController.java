@@ -46,7 +46,7 @@ public class TechnicalController {
         return tecnicoRepository.save(technical);
     }
     //deletar usuario existente
-    @DeleteMapping("{/id_tec}")
+    @DeleteMapping("/{id_tec}")
     private String deleteTechnical(@PathVariable long id_tec){
         Technical technical = tecnicoRepository.findById(id_tec)
                 //antes de deletar verificar se usuario existe
