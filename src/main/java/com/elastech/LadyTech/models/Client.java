@@ -51,9 +51,9 @@ public class Client {
 	@ManyToOne
 	@JoinColumn(name = "id_administrator")
 	private Administrator administrator;
-	
+
 	@Column(name = "administrator_name")
-    private String administratorName;
+	private String administratorName;
 
 	public Client() {
 
@@ -146,7 +146,5 @@ public class Client {
 	public void setAdministratorName(String administratorName) {
 		this.administratorName = administratorName;
 	}
-	
-	
 
 }
