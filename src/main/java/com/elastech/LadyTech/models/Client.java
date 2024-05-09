@@ -1,6 +1,5 @@
 package com.elastech.LadyTech.models;
 
-<<<<<<< HEAD
 import java.sql.Timestamp;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,18 +15,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "cliente") // coloquei assim pra testar, mas observar se não está usando alguma palavra reservada do mysql pq fica dando conflito
 public class Client {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idClient;
 
 	@Column
 	private String name;
 
 	@Column
-	private String telefone; // colocar em ingles
+	private String phone;
 
 	@Column(name = "register_date", updatable = false)
 	@CreationTimestamp
@@ -53,19 +55,19 @@ public class Client {
 	@JoinColumn(name = "id_administrator")
 	private Administrator administrator;
 
-	@Column(name = "administrator_name")
+	@Column(name = "name_administrator")
 	private String administratorName;
 
 	public Client() {
 
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdClient() {
+		return idClient;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
 	}
 
 	public String getName() {
@@ -76,12 +78,12 @@ public class Client {
 		this.name = name;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public Timestamp getRegisterDate() {
@@ -147,109 +149,4 @@ public class Client {
 	public void setAdministratorName(String administratorName) {
 		this.administratorName = administratorName;
 	}
-
-=======
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.security.Timestamp;
-
-@Entity
-public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column
-    private String name;
-    @Column
-    private String telefone;
-    @Column(name = "register_date", updatable = false)
-    @CreationTimestamp
-    private Timestamp registerDate;
-    @Column
-    private String username;
-    @Column
-    private String email;
-    @Column
-    private String password;
-    @Column
-    private String user_Type;
-    @Column
-    private boolean active;
-
-    public Client() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public Timestamp getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(Timestamp registerDate) {
-        this.registerDate = registerDate;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUser_Type() {
-        return user_Type;
-    }
-
-    public void setUser_Type(String user_Type) {
-        this.user_Type = user_Type;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
->>>>>>> main
 }

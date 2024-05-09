@@ -3,8 +3,6 @@ package com.elastech.LadyTech.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.elastech.LadyTech.models.Technical;
-import com.elastech.LadyTech.repositories.TechnicalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.elastech.LadyTech.models.Client;
+import com.elastech.LadyTech.models.Technical;
 import com.elastech.LadyTech.repositories.AdministratorRepository;
 import com.elastech.LadyTech.repositories.ClientRepository;
-
+import com.elastech.LadyTech.repositories.TechnicalRepository;
 
 @RestController
 @RequestMapping("/administrator")
-public class AdministratorController{
+public class AdministratorController {
 
 	@Autowired
 	private AdministratorRepository administratorRepository;
@@ -59,13 +58,13 @@ public class AdministratorController{
 
 	}
 
-	@GetMapping("/consul-technician")
+	@GetMapping("/consult-technician")
 	public ResponseEntity<List<Technical>> consultTechnician() {
 		List<Technical> technician = technicalRepository.findAll();
 		return ResponseEntity.ok(technician);
 	}
 
-	@GetMapping("/consul-client")
+	@GetMapping("/consult-client")
 	public ResponseEntity<List<Client>> consultClient() {
 		List<Client> client = clientRepository.findAll();
 		return ResponseEntity.ok(client);

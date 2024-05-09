@@ -1,8 +1,8 @@
 package com.elastech.LadyTech.repositories;
 
-import com.elastech.LadyTech.models.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.query.JpaParameters;
+
+import com.elastech.LadyTech.models.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
 	boolean existsByUserName(String userName);

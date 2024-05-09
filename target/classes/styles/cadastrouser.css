@@ -1,0 +1,76 @@
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+.arimo-<uniquifier> {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+body{
+height: 900vh;
+}
+
+nav.menu-lateral{
+width: 97px;
+height: 720px;
+background-color: #9E51FF;
+padding: 40px 0 40px 0.8%;
+box-shadow: 3px 0 0 #8b349e;
+
+position: fixed;
+top: 0;
+left: 0;
+overflow: hidden;
+}
+
+nav.menu-lateral:hover{
+width: 300px;
+}
+
+
+.btn-expandir{
+width:100%;
+padding-left: 1%;
+margin-left: 50px;
+
+}
+
+.btn-expandir > i{
+color: #fff;
+font-size: 24px;
+cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type:none;
+}
+
+ul li.item-menu:hover{
+background: #f5defa;
+}
+
+ul li.item-menu{
+transition: .1s;
+}
+
+
+ul li.item-menu a{
+color: #000;
+text-decoration: none;
+font-size: 20px;
+padding: 20px 4px;
+display: flex;
+margin-bottom: 30px;
+line-height: 44px;
+}
+
+ul li.item-menu a .txt-link{
+margin-left: 20px;
+}
+
+ul li.item-menu a .icon > i{
+font-size: 35px;
+}
