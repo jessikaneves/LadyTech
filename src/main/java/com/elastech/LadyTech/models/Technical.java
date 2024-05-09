@@ -1,5 +1,6 @@
 package com.elastech.LadyTech.models;
 
+import com.elastech.LadyTech.models.enums.UserType;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,6 +10,9 @@ public class Technical {
     private long id_tec;
     @Column
     private String name;
+
+    @Column
+    private String userName;
     @Column
     private String email;
     @Column
@@ -39,6 +43,14 @@ public class Technical {
         this.name = name;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -61,5 +73,13 @@ public class Technical {
 
     public void setDepartament(String departament) {
         this.departament = departament;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 }
