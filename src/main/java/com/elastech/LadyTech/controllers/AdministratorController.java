@@ -2,8 +2,9 @@ package com.elastech.LadyTech.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
+import com.elastech.LadyTech.models.Technical;
+import com.elastech.LadyTech.repositories.TechnicalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,34 +13,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.elastech.LadyTech.models.Administrator;
 import com.elastech.LadyTech.models.Client;
-import com.elastech.LadyTech.models.Technician;
 import com.elastech.LadyTech.repositories.AdministratorRepository;
 import com.elastech.LadyTech.repositories.ClientRepository;
-import com.elastech.LadyTech.repositories.TechnicianRepository;
+
 
 @RestController
 @RequestMapping("/administrator")
-public class AdministratorController {
+public class AdministratorController{
 
 	@Autowired
 	private AdministratorRepository administratorRepository;
 
 	@Autowired
-	private TechnicianRepository technicianRepository;
+	private TechnicalRepository technicalRepository;
 
 	@Autowired
 	private ClientRepository clientRepository;
 
 	@PostMapping("/create-technician")
-	public ResponseEntity<String> createTechnician(@RequestBody Technician technician) {
+	public ResponseEntity<String> createTechnician(@RequestBody Technical technical) {
 
-		if (technicianRepository.existsByUserName(technician.getUserName())) {
+		if (technicalRepository.existsByUserName(technical.getUserName())) {
 			return ResponseEntity.badRequest().body("Já existe um técnico cadastrado com esse usuário.");
 		} else {
 
-			technicianRepository.save(technician);
+			technicalRepository.save(technical);
 
 		}
 		return ResponseEntity.ok("Técnico cadastrado com sucesso!");
@@ -61,8 +60,8 @@ public class AdministratorController {
 	}
 
 	@GetMapping("/consul-technician")
-	public ResponseEntity<List<Technician>> consultTechnician() {
-		List<Technician> technician = technicianRepository.findAll();
+	public ResponseEntity<List<Technical>> consultTechnician() {
+		List<Technical> technician = technicalRepository.findAll();
 		return ResponseEntity.ok(technician);
 	}
 
@@ -79,7 +78,7 @@ public class AdministratorController {
 		List<Client> client = clientRepository.findAll();
 		allUsers.addAll(client);
 
-		List<Technician> technician = technicianRepository.findAll();
+		List<Technical> technician = technicalRepository.findAll();
 		allUsers.addAll(technician);
 
 		return ResponseEntity.ok(allUsers);
