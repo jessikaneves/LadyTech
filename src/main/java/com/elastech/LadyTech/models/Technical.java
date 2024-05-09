@@ -1,85 +1,102 @@
 package com.elastech.LadyTech.models;
 
 import com.elastech.LadyTech.models.enums.UserType;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 
 @Entity
 public class Technical {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_tec;
-    @Column
-    private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idTechnical;
+	@Column
+	private String name;
 
-    @Column
-    private String userName;
-    @Column
-    private String email;
-    @Column
-    private String password;
-    @Column
-    private String departament;
-    // chamando o conjunto enum UserType
-    @Column
-    @Enumerated(EnumType.STRING)
-    private UserType userType = UserType.TECHNICAL;
+	@Column
+	private String userName;
+	@Column
+	private String email;
+	@Column
+	private String password;
+	@Column
+	private String departament;
 
-    public Technical() {
-    }
+	@Column
+	@Enumerated(EnumType.STRING)
+	private UserType userType = UserType.TECHNICAL;
 
-    public long getId_tec() {
-        return id_tec;
-    }
+	@ManyToOne
+	@JoinColumn(name = "id_administrator")
+	private Administrator administrator;
 
-    public void setId_tec(long id_tec) {
-        this.id_tec = id_tec;
-    }
+	@Column(name = "name_administrator")
+	private String administratorName;
 
-    public String getName() {
-        return name;
-    }
+	public Technical() {
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public long getIdTechnical() {
+		return idTechnical;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public void setIdTechnical(long idTechnical) {
+		this.idTechnical = idTechnical;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getDepartament() {
-        return departament;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setDepartament(String departament) {
-        this.departament = departament;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public UserType getUserType() {
-        return userType;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setUserType(UserType userType) {
-        this.userType = userType;
-    }
+	public String getDepartament() {
+		return departament;
+	}
+
+	public void setDepartament(String departament) {
+		this.departament = departament;
+	}
+
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
 }

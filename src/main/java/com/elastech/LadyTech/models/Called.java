@@ -1,86 +1,101 @@
+/*
 package com.elastech.LadyTech.models;
-
-import jakarta.persistence.*;
 
 import java.security.Timestamp;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 @Entity
-@Table(name = "Called_tb")
 public class Called {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column
-    private Client client;
-    @Column
-    private String title;
-    //adiconar update como false no db
-    @Column
-    private Timestamp timestamp;
-    @Column
-    private String priority;
-    @Column
-    private String description;
-    //criar um enum para esses status
-    @Column
-    private String status;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idCalled;
 
-    public Called() {
-    }
+	@Column
+	private Client client;
 
-    public long getId() {
-        return id;
-    }
+	@Column
+	private String title;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	// adiconar update como false no db
+	@Column
+	private Timestamp timestamp;
 
-    public Client getClient() {
-        return client;
-    }
+	@Column
+	private String priority;
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
+	@Column
+	private String description;
 
-    public String getTitle() {
-        return title;
-    }
+	// criar um enum para esses status
+	@Column
+	private String status;
+		
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public Called() {
+	}
 
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
+	public long getIdCalled() {
+		return idCalled;
+	}
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
-    }
+	public void setIdCalled(long idCalled) {
+		this.idCalled = idCalled;
+	}
 
-    public String getPriority() {
-        return priority;
-    }
+	public Client getClient() {
+		return client;
+	}
 
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
+	public void setClient(Client client) {
+		this.client = client;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }
+*/

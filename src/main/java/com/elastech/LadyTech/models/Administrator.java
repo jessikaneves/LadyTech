@@ -9,10 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "administrator")
 public class Administrator {
 
 	@Id
@@ -31,7 +29,7 @@ public class Administrator {
 	@Column(length = 50)
 	private String email;
 
-	@Column
+	@Column(length = 50)
 	@Enumerated(EnumType.STRING)
 	private UserType userType = UserType.ADMINISTRATOR;
 
