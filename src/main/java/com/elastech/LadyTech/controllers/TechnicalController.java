@@ -1,4 +1,3 @@
-/*
 package com.elastech.LadyTech.controllers;
 
 import java.util.List;
@@ -13,12 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.elastech.LadyTech.models.Called;
 import com.elastech.LadyTech.repositories.CalledRepository;
-import com.elastech.LadyTech.repositories.TechnicalRepository;
 
 @RestController
 @RequestMapping("/technical")
 public class TechnicalController {
-
+	
 	@Autowired
 	private CalledRepository calledRepository;
 
@@ -30,29 +28,28 @@ public class TechnicalController {
 	}
 
 	// visualizar apenas um chamado
-	@GetMapping("{/id_call}")
-	private Called getCalledById(@PathVariable long id_call) {
-		return calledRepository.findById(id_call).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
+	@GetMapping("/{idCalled}")
+	private Called getCalledById(@PathVariable long idCalled) {
+		return calledRepository.findById(idCalled).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
 	}
 
 	// atualizar status
-	@PatchMapping("/status/{id_call}")
-	private Called updateStatus(@PathVariable long id_call, @RequestBody Called calledupdate) {
-		Called called = calledRepository.findById(id_call)
+	@PatchMapping("/status/{idCalled}")
+	private Called updateStatus(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
+		Called called = calledRepository.findById(idCalled)
 				.orElseThrow(() -> new RuntimeException("Técnico não encontrado"));
 		// set em cada um dos atributos autalizados com novo valor do tecnicoupdate
-		called.setStatus(calledupdate.getStatus());
+		called.setStatus(calledUpdate.getStatus());
 		return calledRepository.save(called);
 	}
 
 	// atualizar prioridade
-	@PatchMapping("/priority/{id_call}")
-	private Called updatePriority(@PathVariable long id_call, @RequestBody Called calledupdate) {
-		Called called = calledRepository.findById(id_call)
+	@PatchMapping("/priority/{idCalled}")
+	private Called updatePriority(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
+		Called called = calledRepository.findById(idCalled)
 				.orElseThrow(() -> new RuntimeException("Técnico não encontrado"));
 		// set em cada um dos atributos autalizados com novo valor do tecnicoupdate
-		called.setPriority(calledupdate.getPriority());
+		called.setPriority(calledUpdate.getPriority());
 		return calledRepository.save(called);
 	}
 }
-*/

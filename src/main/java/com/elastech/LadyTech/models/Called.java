@@ -1,7 +1,8 @@
-/*
 package com.elastech.LadyTech.models;
 
 import java.security.Timestamp;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,22 +11,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "chamado")
 public class Called {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idCalled;
 
 	@Column
-	private Client client;
-
-	@Column
 	private String title;
 
-	// adiconar update como false no db
-	@Column
-	private Timestamp timestamp;
+	@Column(name = "register_called", updatable = false)
+	@CreationTimestamp
+	private Timestamp registerDate;
 
 	@Column
 	private String priority;
@@ -33,10 +33,19 @@ public class Called {
 	@Column
 	private String description;
 
-	// criar um enum para esses status
 	@Column
 	private String status;
-		
+	
+	@Column 
+	private String departament;
+
+	@ManyToOne
+	@JoinColumn(name = "id_user")
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "id_technical")
+	private Technical technical;
 
 	public Called() {
 	}
@@ -49,14 +58,6 @@ public class Called {
 		this.idCalled = idCalled;
 	}
 
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -65,12 +66,12 @@ public class Called {
 		this.title = title;
 	}
 
-	public Timestamp getTimestamp() {
-		return timestamp;
+	public Timestamp getRegisterDate() {
+		return registerDate;
 	}
 
-	public void setTimestamp(Timestamp timestamp) {
-		this.timestamp = timestamp;
+	public void setRegisterDate(Timestamp registerDate) {
+		this.registerDate = registerDate;
 	}
 
 	public String getPriority() {
@@ -97,5 +98,20 @@ public class Called {
 		this.status = status;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Technical getTechnical() {
+		return technical;
+	}
+
+	public void setTechnical(Technical technical) {
+		this.technical = technical;
+	}
+
 }
-*/

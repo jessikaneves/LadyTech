@@ -18,12 +18,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cliente") // coloquei assim pra testar, mas observar se não está usando alguma palavra reservada do mysql pq fica dando conflito
-public class Client {
+@Table(name = "usuario")
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idClient;
+	private Long idUser;
 
 	@Column
 	private String name;
@@ -31,7 +31,7 @@ public class Client {
 	@Column
 	private String phone;
 
-	@Column(name = "register_date", updatable = false)
+	@Column(name = "register_user", updatable = false)
 	@CreationTimestamp
 	private Timestamp registerDate;
 
@@ -58,16 +58,16 @@ public class Client {
 	@Column(name = "name_administrator")
 	private String administratorName;
 
-	public Client() {
+	public User() {
 
 	}
 
-	public Long getIdClient() {
-		return idClient;
+	public Long getIdUser() {
+		return idUser;
 	}
 
-	public void setIdClient(Long idClient) {
-		this.idClient = idClient;
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getName() {

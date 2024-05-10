@@ -11,9 +11,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "tecnico")
 public class Technical {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +28,6 @@ public class Technical {
 	private String email;
 	@Column
 	private String password;
-	@Column
-	private String departament;
 
 	@Column
 	@Enumerated(EnumType.STRING)
@@ -84,14 +83,6 @@ public class Technical {
 		this.password = password;
 	}
 
-	public String getDepartament() {
-		return departament;
-	}
-
-	public void setDepartament(String departament) {
-		this.departament = departament;
-	}
-
 	public UserType getUserType() {
 		return userType;
 	}
@@ -99,4 +90,21 @@ public class Technical {
 	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}
+
+	public Administrator getAdministrator() {
+		return administrator;
+	}
+
+	public void setAdministrator(Administrator administrator) {
+		this.administrator = administrator;
+	}
+
+	public String getAdministratorName() {
+		return administratorName;
+	}
+
+	public void setAdministratorName(String administratorName) {
+		this.administratorName = administratorName;
+	}
+
 }
