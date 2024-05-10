@@ -1,4 +1,3 @@
-/*
 package com.elastech.LadyTech.controllers;
 
 import java.util.List;
@@ -16,7 +15,7 @@ import com.elastech.LadyTech.repositories.CalledRepository;
 
 @RestController
 @RequestMapping("/client")
-public class ClientController {
+public class UserController {
 
 	@Autowired
 	private CalledRepository calledRepository;
@@ -26,15 +25,17 @@ public class ClientController {
 		return calledRepository.findAll();
 	}
 
-	@GetMapping("{/id_call}")
-	private Called getCalledById(@PathVariable long id_call) {
-		return calledRepository.findById(id_call).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
+	@GetMapping("/{idCalled}")
+	private Called getCalledById(@PathVariable long idCalled) {
+		return calledRepository.findById(idCalled).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
 	}
 
 	@PostMapping
-	private Called saveCalled(@PathVariable long id_call, @RequestBody Called called) {
+	private Called saveCalled(@PathVariable long idCalled, @RequestBody Called called) {
 		return calledRepository.save(called);
 	}
 
 }
-*/
+
+
+
