@@ -1,12 +1,6 @@
-
 body {
     background-color: #c2c2c2;
     font-family: "Segoe UI", Arial, sans-serif;
-}
-
-.table-container {
-    overflow-x: auto;
-
 }
 
 table {
@@ -51,7 +45,7 @@ th {
     animation: fadeIn 0.5s ease forwards;
 }
 .slide-in {
-    animation: slideIn 0.5s ease forwards;
+    animation: slideIn 0.5s ease forwards;
 }
 
 nav.menu-lateral{
