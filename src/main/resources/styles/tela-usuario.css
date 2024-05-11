@@ -1,4 +1,4 @@
-/* Estilos da tabela */
+
 .table-container {
     overflow-x: auto;
 }
@@ -18,7 +18,7 @@
     background-color: #f5f5f5;
 }
 
-/* Animações */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
