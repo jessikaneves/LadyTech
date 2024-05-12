@@ -9,6 +9,7 @@ import com.elastech.LadyTech.repositories.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,7 +23,7 @@ public class AutenticationController {
     @Autowired
     private HttpSession session;
     @PostMapping("/login")
-    private String login(String username, String password){
+    private String login(@RequestParam String username, @RequestParam String password){
 
         User user = userRepository.findByUserName(username);
         if (user!= null){
@@ -39,8 +40,7 @@ public class AutenticationController {
             session.setAttribute("usuarioLogado", administrator);
             return "redirect:/cadastrouser";
         }
-
-        return "redirect:/login";
+        return "erro ao fazer login";
 
 
     }
