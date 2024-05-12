@@ -44,8 +44,7 @@ ul{
     list-style-type:none;
 }
 .txt-link {
-    color: #E7E7E7; /* Define a cor do texto como vermelho */
-    /* Outras propriedades do seu estilo aqui */
+    color: #E7E7E7;
 }
 
 .dropdown-menu {
@@ -149,7 +148,7 @@ font-size: 35px;
 
 
 .wrapper {
-    font-family: 'Open Sans', sans-serif; /* Aplica a fonte 'Open Sans' com fallback para fontes sans-serif */
+    font-family: 'Open Sans', sans-serif;
 
   --main-color: #323232;
   --input-focus: #2d8cf0;
