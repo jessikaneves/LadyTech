@@ -1,6 +1,7 @@
 body {
     background-color: #c2c2c2;
     overflow: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .container {
@@ -11,9 +12,9 @@ body {
 }
 
 .form {
-    max-width: 16%;
+    max-width: 22%;
     background-color: #e7e7e7;
-    padding:50px;
+    padding:41px;
     box-shadow: 0 0 200px rgba(0, 0, 0, 0.5);
 }
 

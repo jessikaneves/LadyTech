@@ -44,7 +44,8 @@ ul{
     list-style-type:none;
 }
 .txt-link {
-    color: #E7E7E7;
+    color: #E7E7E7; /* Define a cor do texto como vermelho */
+    /* Outras propriedades do seu estilo aqui */
 }
 
 .dropdown-menu {
@@ -148,7 +149,7 @@ font-size: 35px;
 
 
 .wrapper {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Aplica a fonte 'Open Sans' com fallback para fontes sans-serif */
 
   --main-color: #323232;
   --input-focus: #2d8cf0;
@@ -187,11 +188,13 @@ font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .flip-card__inner {
-  width: 290px;
-  height: 394px;
+  width: 300px;
+  height: 420px;
   position: relative;
   background-color: transparent;
   perspective: 1000px;
+    /* width: 100%;
+    height: 100%; */
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
@@ -214,7 +217,7 @@ font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .flip-card__front {
-  padding: 120px;
+  padding: 80px;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -232,7 +235,7 @@ font-family: "Segoe UI", Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 27px;
 }
 
 
