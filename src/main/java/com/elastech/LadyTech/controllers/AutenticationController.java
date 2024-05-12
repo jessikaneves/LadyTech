@@ -40,7 +40,7 @@ public class AutenticationController {
             session.setAttribute("usuarioLogado", administrator);
             return "redirect:/cadastrouser";
         }
-        return "erro ao fazer login";
+        return "redirect:/login";
 
 
     }
