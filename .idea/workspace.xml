@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/styles/novo-chamado.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/novo-chamado.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/tela-usuario.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/tela-usuario.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tela-usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tela-usuario.html" afterDir="false" />
-    </list>
+    <list default="true" id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="Criação da tela inicial (login) com CSS e HTML" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +23,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -47,7 +42,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "tela-admin-visualizar-usuarios",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/jesss/OneDrive/Desktop/LadyTech"
   }
@@ -69,5 +64,20 @@
       <updated>1715213874467</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Criação da tela inicial (login) com CSS e HTML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação da tela inicial (login) com CSS e HTML" />
   </component>
 </project>
