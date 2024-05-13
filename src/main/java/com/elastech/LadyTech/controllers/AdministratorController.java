@@ -1,11 +1,12 @@
 package com.elastech.LadyTech.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.elastech.LadyTech.models.Administrator;
 import com.elastech.LadyTech.models.Technical;
@@ -22,7 +22,7 @@ import com.elastech.LadyTech.repositories.AdministratorRepository;
 import com.elastech.LadyTech.repositories.TechnicalRepository;
 import com.elastech.LadyTech.repositories.UserRepository;
 
-@RestController
+@Controller
 @RequestMapping("/administrator")
 public class AdministratorController {
 
@@ -84,29 +84,15 @@ public class AdministratorController {
 		return ResponseEntity.ok("Cliente cadastrado com sucesso!");
 	}
 
-	@GetMapping("/consult-technician")
-	public ResponseEntity<List<Technical>> consultTechnician() {
-		List<Technical> technician = technicalRepository.findAll();
-		return ResponseEntity.ok(technician);
-	}
-
-	@GetMapping("/consult-user")
-	public ResponseEntity<List<User>> consultUser() {
-		List<User> user = userRepository.findAll();
-		return ResponseEntity.ok(user);
-	}
-
 	@GetMapping("/consult-users")
-	public ResponseEntity<List<Object>> consultUsers() {
-		List<Object> allUsers = new ArrayList<>();
+	public String consultUsers(Model model) {
+		List<User> users = userRepository.findAll();
+		List<Technical> technicians = technicalRepository.findAll();
 
-		List<User> user = userRepository.findAll();
-		allUsers.addAll(user);
-
-		List<Technical> technician = technicalRepository.findAll();
-		allUsers.addAll(technician);
-
-		return ResponseEntity.ok(allUsers);
+		model.addAttribute("users", users);
+		model.addAttribute("technicians", technicians);
+		
+		return "administrador-usuarios";
 	}
 
 	@PutMapping("/update-technician/{idTechnical}")
