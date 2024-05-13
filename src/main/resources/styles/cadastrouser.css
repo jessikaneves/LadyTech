@@ -1,9 +1,9 @@
 
 body{
-font-family: "Segoe UI", Arial, sans-serif;
-height: 900vh;
-background-color: #F9F2FD;
- overflow: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
+    height: 900vh;
+    background-color: #c2c2c2;
+     overflow: hidden;
 }
 
 
@@ -12,7 +12,7 @@ width: 97px;
 height: 720px;
 background-color: #9E51FF;
 padding: 40px 0 40px 0.8%;
-box-shadow: 3px 0 0 #C2C2C2;
+box-shadow: 3px 0 0 #8b349e;
 
 position:fixed;
 top: 0;
@@ -39,13 +39,17 @@ font-size: 33px;
 cursor: pointer;
 }
 
+
 ul{
     height:100%;
     list-style-type:none;
 }
+
+/*
 .txt-link {
     color: #E7E7E7;
 }
+*/
 
 .dropdown-menu {
     display: none;
@@ -66,8 +70,56 @@ text-decoration: none;
 font-size: 20px;
 }
 
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #DDD6E6;
+  min-width: 141px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px 12px;
+  text-decoration: none;
+  display: block;
+  margin-left: 20px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #fff;
+}
+
+
+
+
+
 ul li.item a{
-color: #000;
+color:#261a26;
 text-decoration: none;
 font-size: 20px;
 padding: 20px 4px;
@@ -95,13 +147,8 @@ font-size: 35px;
 }
 
 
-
-
-
-
-
 ul li.item-menu:hover{
-background: #BDBDBD;
+background: #EDFFAD;
 }
 
 
@@ -113,12 +160,12 @@ transition: .1s;
 }
 
 ul li.ativo{
-    background-color: #000;
+    background-color:#DFFF6B;
 }
 
 
 ul li.item-menu a{
-color: #D3FF40;
+color: #261a26;
 text-decoration: none;
 font-size: 20px;
 padding: 20px 4px;
@@ -150,16 +197,16 @@ font-size: 35px;
 .wrapper {
     font-family: 'Open Sans', sans-serif;
 
-  --main-color: #323232;
+  --main-color: #261a26;
   --input-focus: #2d8cf0;
-    --font-color: #323232;
-    --font-color-sub: #666;
-    --bg-color: #fff;
-    --bg-color-alt: #666;
-    --main-color: #323232;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    --font-color: #261a26;
+       --font-color-sub: #261a26;
+       --bg-color: #fff;
+      --bg-color-alt: #261a26;
+       --main-color: #323232;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
 
   }
 
@@ -167,8 +214,8 @@ font-size: 35px;
 
 .title {
 font-family: "Segoe UI", Arial, sans-serif;
-  margin: 1px 0 40px 0;
-  font-size: 25px;
+  margin: -60px 0 26px 0;
+  font-size: 30px;
   font-weight: 660;
   text-align: center;
   color: var(--main-color);
@@ -221,7 +268,7 @@ font-family: "Segoe UI", Arial, sans-serif;
   justify-content: center;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background: lightgrey;
+  background:#e7e7e7;
   gap: 20px;
   border-radius: 6px;
   border: 3px solid var(--main-color);
@@ -243,7 +290,7 @@ font-family: "Segoe UI", Arial, sans-serif;
   height: 45px;
   border-radius: 5px;
   border: 2px solid var(--main-color);
-  background-color: var(--bg-color);
+  background-color: #c2c2c2;
   box-shadow: 4px 4px var(--main-color);
   font-size: 17px;
   font-weight: 600;
@@ -251,4 +298,6 @@ font-family: "Segoe UI", Arial, sans-serif;
   cursor: pointer;
 
 }
-
+.flip-card__btn:hover {
+    background-color: #DFFF6B;
+}
