@@ -49,7 +49,7 @@ public class User {
 
 	@Column
 	@Enumerated(EnumType.STRING)
-	private UserType userType = UserType.CLIENT;
+	private UserType userType = UserType.USER;
 
 	@ManyToOne
 	@JoinColumn(name = "id_administrator")
