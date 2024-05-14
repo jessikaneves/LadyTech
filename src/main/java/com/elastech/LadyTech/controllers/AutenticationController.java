@@ -32,22 +32,25 @@ public class AutenticationController {
 	public String login(@RequestParam String username, @RequestParam String password) {
 
 		User user = userRepository.findByUserName(username);
-		if (user != null) {
-			session.setAttribute("usuarioLogade", user);
+		if (user != null && user.getPassword().equals(password)) {
+			session.setAttribute("usuarioLogado", user);
 			return "redirect:/usuario-historico";
 		}
+
 		Technical technical = technicalRepository.findByUserName(username);
-		if (technical != null) {
+		if (technical != null && technical.getPassword().equals(password)) {
 			session.setAttribute("usuarioLogado", technical);
 			return "redirect:/tecnico-historico";
 		}
-		Administrator administrator = administratorRepository.findByUserName(username);
-		if (administrator != null) {
-			session.setAttribute("usuarioLogado", administrator);
-			return "redirect:/administrador-usuarios";
-		}
-		return "redirect:/login";
 
+		Administrator administrator = administratorRepository.findByUserName(username);
+		if (administrator != null && administrator.getPassword().equals(password)) {
+			session.setAttribute("administradorLogado", administrator);
+
+			return "redirect:/called/consult-called";
+		}
+
+		return "redirect:/login";
 	}
 
 	@GetMapping("/logout")

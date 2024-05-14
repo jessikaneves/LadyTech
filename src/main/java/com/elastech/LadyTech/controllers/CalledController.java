@@ -27,6 +27,13 @@ public class CalledController {
 	@Autowired
 	private CalledRepository calledRepository;
 
+	@GetMapping("/consult-called")
+	private String getAllCalled(Model model) {
+		List<Called> called = calledRepository.findAll();
+		model.addAttribute("chamados", called);
+		return "administrador-tela-inicial";
+	}
+
 	@PostMapping("/creat-called")
 	public ResponseEntity<String> creatCalled(@RequestBody Called called) {
 		Long idTechnical = called.getTechnical().getIdTechnical();
@@ -45,11 +52,5 @@ public class CalledController {
 
 		}
 	}
-	
-	@GetMapping("/consult-called")
-	private String getAllCalled(Model model) {
-		List<Called> called = calledRepository.findAll();
-		model.addAttribute("chamados", called);
-		return "administrador-tela-inicial";
-	}
+
 }
