@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/styles/cadastro-tech.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/cadastro-tech.css" afterDir="false" />
@@ -16,6 +17,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/novo-chamado.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/novo-chamado.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tela-tecnico.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tela-tecnico.html" afterDir="false" />
     </list>
+=======
+    <list default="true" id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="Criação da tela inicial (login) com CSS e HTML" />
+>>>>>>> dbadc2e5ad004cf80f7302f3f57cce9c8d86deed
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +38,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -47,6 +51,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.LadyTechApplication.executor&quot;: &quot;Run&quot;,
@@ -56,6 +61,17 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/jesss/OneDrive/Desktop/LadyTech&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.LadyTechApplication.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "tela-admin-visualizar-usuarios",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/jesss/OneDrive/Desktop/LadyTech"
+>>>>>>> dbadc2e5ad004cf80f7302f3f57cce9c8d86deed
   }
 }</component>
   <component name="SharedIndexes">
@@ -75,5 +91,20 @@
       <updated>1715213874467</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Criação da tela inicial (login) com CSS e HTML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação da tela inicial (login) com CSS e HTML" />
   </component>
 </project>
