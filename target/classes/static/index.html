@@ -11,13 +11,15 @@
 <section class="home">
 	<div class="container">
 		<img src="\images\login.jpg" alt="Login" class="login.jpg" width="388" height=auto>
-		<form class="form" method="post" action="/login">
+
+		<form class="form" method="post" action="/autentication/login">
 			<label>Nome do Usuário</label> <br>
 			<input type="text" th:text="${username}" id="username" name="username"> <br>
 			<label>Senha</label><br>
 			<input type="password" th:text="${password}" id="password" name="password"> <br>
 			<button>Entrar</button>
 		</form>
+
 	</div>
 </section>
 
