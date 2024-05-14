@@ -4,33 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="">
+    <list default="true" id="20ce6314-d135-4534-8695-f2108bf62ac7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/cadastro-tech.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/cadastro-tech.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/cadastrouser.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/cadastrouser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/login-tecnico-historico-chamados.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/login-tecnico-historico-chamados.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/novo-chamado.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/novo-chamado.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastro-tech.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastro-tech.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrouser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastrouser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login-tecnico-historico-chamados.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login-tecnico-historico-chamados.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/novo-chamado.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/novo-chamado.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tela-tecnico.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tela-tecnico.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.apt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.springframework.ide.eclipse.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/animation/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/animation/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/git.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/git.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/login.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/administrador-cadastro-tecnico.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/administrador-cadastro-tecnico.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/administrador-cadastro-usuario.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/administrador-cadastro-usuario.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/administrador-usuarios.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/administrador-usuarios.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/tecnico-chamados-abertos.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/tecnico-chamados-abertos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/tecnico-historico.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/tecnico-historico.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/tela-principal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/tela-principal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/usuario-historico.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/usuario-historico.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/usuario-novo-chamado.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/usuario-novo-chamado.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controller/AdministratorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controller/AutenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controller/ClientController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controller/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controller/TechnicalController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/AdministratorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/AdministratorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/AutenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/AutenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/TechnicalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/TechnicalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/models/Called.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/models/Called.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/models/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/models/UserType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/elastech/LadyTech/repositories/ClientRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/images/git.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/images/login.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/styles/cadastrouser.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/styles/login-tela-principal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/styles/novo-chamado.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/styles/tela-usuario.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/cadastrouser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login-tela-principal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/novo-chamado.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/tela-usuario.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/elastech/LadyTech/LadyTechApplicationTests.class" beforeDir="false" />
     </list>
-=======
-    <list default="true" id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="Criação da tela inicial (login) com CSS e HTML" />
->>>>>>> dbadc2e5ad004cf80f7302f3f57cce9c8d86deed
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,42 +66,33 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+        <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2gCuRWT54VuxsfmS6uu7yC5Jagk" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2gRL6JApLpp5rstRdJyuPQlU6v4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.LadyTechApplication.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jesss/OneDrive/Desktop/LadyTech&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.LadyTechApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "tela-admin-visualizar-usuarios",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jesss/OneDrive/Desktop/LadyTech"
->>>>>>> dbadc2e5ad004cf80f7302f3f57cce9c8d86deed
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Paulo\Desktop\Soulcode\LadyTech\src\main\resources\static" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -84,27 +103,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="" />
-      <created>1715213874467</created>
+      <changelist id="20ce6314-d135-4534-8695-f2108bf62ac7" name="Changes" comment="" />
+      <created>1715655267836</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1715213874467</updated>
+      <updated>1715655267836</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Criação da tela inicial (login) com CSS e HTML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação da tela inicial (login) com CSS e HTML" />
   </component>
 </project>
