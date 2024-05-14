@@ -1,6 +1,6 @@
 package com.elastech.LadyTech.models;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -35,9 +35,12 @@ public class Called {
 
 	@Column
 	private String status;
-	
-	@Column 
+
+	@Column
 	private String departament;
+
+	@Column(name = "name_technical")
+	private String technicalName;
 
 	@ManyToOne
 	@JoinColumn(name = "id_user")
@@ -96,6 +99,22 @@ public class Called {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getDepartament() {
+		return departament;
+	}
+
+	public void setDepartament(String departament) {
+		this.departament = departament;
+	}
+
+	public String getTechnicalName() {
+		return technicalName;
+	}
+
+	public void setTechnicalName(String technicalName) {
+		this.technicalName = technicalName;
 	}
 
 	public User getUser() {
