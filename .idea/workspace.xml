@@ -55,6 +55,9 @@
       <change beforePath="$PROJECT_DIR$/target/classes/templates/tela-usuario.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/elastech/LadyTech/LadyTechApplicationTests.class" beforeDir="false" />
     </list>
+
+    <list default="true" id="5543187f-a9fb-47ae-80b0-b306ea0ac0c1" name="Changes" comment="Criação da tela inicial (login) com CSS e HTML" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +76,7 @@
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 0
-}]]></component>
+</component>
   <component name="ProjectId" id="2gRL6JApLpp5rstRdJyuPQlU6v4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -86,8 +89,19 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LadyTechApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jesss/OneDrive/Desktop/LadyTech&quot;
+
+
   }
-}]]></component>
+</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Paulo\Desktop\Soulcode\LadyTech\src\main\resources\static" />
