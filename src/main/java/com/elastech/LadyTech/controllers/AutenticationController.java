@@ -29,30 +29,30 @@ public class AutenticationController {
 	private HttpSession session;
 
 	@PostMapping("/login")
-	private String login(@RequestParam String username, @RequestParam String password) {
+	public String login(@RequestParam String username, @RequestParam String password) {
 
 		User user = userRepository.findByUserName(username);
 		if (user != null) {
 			session.setAttribute("usuarioLogade", user);
-			return "redirect:/tela-usuario";
+			return "redirect:/usuario-historico";
 		}
 		Technical technical = technicalRepository.findByUserName(username);
 		if (technical != null) {
 			session.setAttribute("usuarioLogado", technical);
-			return "redirect:/tela-tecnico";
+			return "redirect:/tecnico-historico";
 		}
 		Administrator administrator = administratorRepository.findByUserName(username);
 		if (administrator != null) {
 			session.setAttribute("usuarioLogado", administrator);
-			return "redirect:/cadastrouser";
+			return "redirect:/administrador-usuarios";
 		}
 		return "redirect:/login";
 
 	}
-	
+
 	@GetMapping("/logout")
-	private String logout() {
-	    session.invalidate(); 
-	    return "redirect:/index.html"; 
+	public String logout() {
+		session.invalidate();
+		return "redirect:/index.html";
 	}
 }
