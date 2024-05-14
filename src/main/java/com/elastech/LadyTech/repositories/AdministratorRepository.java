@@ -6,5 +6,5 @@ import com.elastech.LadyTech.models.Administrator;
 
 public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
 
-    Administrator findByUserName(String username);
+    Administrator findByUserName(String userName);
 }

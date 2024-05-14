@@ -1,5 +1,5 @@
 package com.elastech.LadyTech.models.enums;
 
 public enum UserType {
-	ADMINISTRATOR, TECHNICAL, CLIENT;
+	ADMINISTRATOR, TECHNICAL, USER;
 }

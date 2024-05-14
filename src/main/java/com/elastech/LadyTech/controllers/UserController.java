@@ -14,7 +14,7 @@ import com.elastech.LadyTech.models.Called;
 import com.elastech.LadyTech.repositories.CalledRepository;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
