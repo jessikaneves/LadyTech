@@ -29,19 +29,18 @@
             </a>
         </li>
 
-        <li class="item-menu">
-            <a href="" >
-                <span class="icon"><i class="bi bi-pencil-square"></i></span>
-                <span class="txt-link">Cadastro</span>
-            </a>
-        </li>
 
-        <li class = "drop">
-        <ul class="dropdownmenu">
-            <li><a href="http://localhost:63342/LadyTech/src/main/resources/templates/cadastrouser.html?_ijt=fcml8clf2ja3frv1sc9r47feqr&_ij_reload=RELOAD_ON_SAVE">Usuário</a></li>
-            <li><a href="http://localhost:63342/LadyTech/src/main/resources/templates/cadastro-tech.html?_ijt=klokcelaovvff7k4k0j1b9la8f&_ij_reload=RELOAD_ON_SAVE#">Técnico</a></li>
-        </ul>
-        </li>
+        <li class="item-menu ">
+            <div class="dropdown">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-pencil-square"></i></span>
+                    <span class="txt-link">Cadastro</span>
+                    <div class ="dropdown-content">
+                        <a href="http://localhost:63342/LadyTech/src/main/resources/templates/administrador-cadastro-usuario.html?_ijt=94hh0hu9fq4gbcas14v6te01q7&_ij_reload=RELOAD_ON_SAVE"> Usuário</a>
+                        <a href="http://localhost:63342/LadyTech/src/main/resources/templates/administrador-cadastro-tecnico.html?_ijt=q86ukjql730r9mddk0fkisg7ol&_ij_reload=RELOAD_ON_SAVE">Técnico</a>
+                    </div>
+                </a>
+            </div>
 
         <li class="item-menu">
             <a href="#">
@@ -70,10 +69,10 @@
                 <label class="switch">
             <div class="title">Cadastrar Usuário</div>
             <form class="flip-card__form" action="">
-                <input class="flip-card__input" name="email" placeholder="Nome" type="text">
-                <input class="flip-card__input" name="password" placeholder="E-mail" type="email">
-                <input class="flip-card__input" name="email" placeholder="Telefone" type="tel">
-                <input class="flip-card__input" name="email" placeholder="Senha" type="password">
+                <input class="flip-card__input" name="name" placeholder="Nome" type="text">
+                <input class="flip-card__input" name="e-mail" placeholder="E-mail" type="email">
+                <input class="flip-card__input" name="telefone" placeholder="Telefone" type="tel">
+                <input class="flip-card__input" name="password" placeholder="Senha" type="password">
 
                 <button class="flip-card__btn">Salvar</button>
             </form>

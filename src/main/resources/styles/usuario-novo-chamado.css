@@ -15,6 +15,7 @@ position: fixed;
 top: 0;
 left: 0;
 overflow: hidden;
+transition: .6s;
 }
 
 nav.menu-lateral:hover{
@@ -38,6 +39,15 @@ cursor: pointer;
 ul{
     height: 100%;
     list-style-type:none;
+
+/*
+ .txt-link {
+     color: #E7E7E7; muda cor do texto
+ }
+ */
+
+
+
 }
 ul li.item a {
 color: #261a26;
@@ -61,9 +71,22 @@ font-size: 35px;
 ul li.item{
 transition: .1s;
 }
+
+
 ul li.item-menu:hover{
-background: #d3ff40;
+background: #EDFFAD;
 }
+
+ul li.item-menu{
+transition: .1s;
+
+}
+
+ul li.ativo{
+    background-color:#DFFF6B;
+}
+
+
 
 
 ul li.item-menu a {
@@ -98,7 +121,7 @@ font-size: 35px;
 .title {
   font-family: "Segoe UI", Arial, sans-serif;
   margin: -85px 0 20px 0;
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 660;
   text-align: center;
   color: var(--main-color);
@@ -123,15 +146,14 @@ font-size: 35px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-
 .flip-card__input {
   font-family: "Segoe UI", Arial, sans-serif;
   width: 300px;
   height: 20px;
   border-radius: 5px;
-  border: 2px solid var(--main-color);
+  border: 3px solid var(--main-color);
   background-color: var(--bg-color);
-  box-shadow: #e7e7e7;
+  box-shadow: 2px 3px var(--main-color);
   font-size: 15px;
   font-weight: 600;
   color: var(--font-color);
@@ -140,13 +162,16 @@ font-size: 35px;
   outline: none;
 }
 
-.flip-card_description_input {
+
+
+.flip-card_description_input{
   font-family: "Segoe UI", Arial, sans-serif;
   width: 300px;
   height: 130px;
   border-radius: 5px;
-  border: 2px solid var(--main-color);
+  border: 3px solid var(--main-color);
   background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
   box-shadow: #e7e7e7;
   font-size: 15px;
   font-weight: 600;
@@ -155,7 +180,14 @@ font-size: 35px;
    margin: 5px 0;
   outline: none;
   overflow-wrap: break-word;
+
 }
+
+
+
+
+
+
 
 .flip-card__front {
   padding: 120px;
@@ -196,5 +228,5 @@ font-size: 35px;
 }
 
 .flip-card__btn:hover {
-    background-color: #9e51ff;
+    background-color: #DFFF6B;
 }

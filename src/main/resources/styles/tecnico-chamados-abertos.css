@@ -20,7 +20,8 @@ th, td {
 }
 
 th {
-    background-color: #d3ff40;
+    background-color: #DFFF6B;
+
 }
 
 @keyframes fadeIn {
@@ -102,11 +103,18 @@ font-size: 35px;
 }
 
 
-ul li.item{
-transition: .1s;
-}
+
 ul li.item-menu:hover{
-background: #d3ff40;
+background: #EDFFAD;
+}
+
+ul li.item-menu{
+transition: .1s;
+
+}
+
+ul li.ativo{
+    background-color:#DFFF6B;
 }
 
 
