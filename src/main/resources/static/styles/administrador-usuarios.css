@@ -1,0 +1,149 @@
+body {
+    background-color: #c2c2c2;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 120%;
+    border: 1px solid #261a26;
+}
+
+th, td {
+    border: 1px solid #261a26;
+    padding: 0.8rem;
+    text-align: left;
+}
+
+th, td {
+    background-color: #e7e7e7;
+}
+
+th {
+    background-color: #d3ff40;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+.slide-in {
+    animation: slideIn 0.5s ease forwards;
+}
+
+nav.menu-lateral{
+width: 97px;
+height: 720px;
+background-color: #9E51FF;
+padding: 40px 0 40px 0.8%;
+box-shadow: 3px 0 0 #8b349e;
+
+position: fixed;
+top: 0;
+left: 0;
+overflow: hidden;
+}
+
+nav.menu-lateral:hover{
+width: 300px;
+}
+
+
+.btn-expandir{
+width:100%;
+padding-left: 1%;
+margin-left: 50px;
+
+}
+
+.btn-expandir > i{
+color: #fff;
+font-size: 24px;
+cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type:none;
+}
+ul li.item a {
+color: #261a26;
+text-decoration: none;
+font-size: 20px;
+padding: 20px 4px;
+display: flex;
+margin-bottom: 30px;
+line-height: 44px;
+}
+
+ul li.item a .txt-link{
+margin-left: 20px;
+}
+
+ul li.item a .icon > i{
+font-size: 35px;
+}
+
+
+ul li.item{
+transition: .1s;
+}
+ul li.item-menu:hover{
+background: #d3ff40;
+}
+
+
+ul li.item-menu a {
+color: #261a26;
+text-decoration: none;
+font-size: 20px;
+padding: 20px 4px;
+display: flex;
+margin-bottom: 30px;
+line-height: 44px;
+}
+
+ul li.item-menu a .txt-link{
+margin-left: 20px;
+}
+
+ul li.item-menu a .icon > i{
+font-size: 35px;
+}
+
+.btn-editar,
+.btn-excluir {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: -30px 0 0px 0;
+  width: 70px;
+  height: 30px;
+  border: 1px solid #261a26;
+  background-color: #c2c2c2;
+  color: white;
+  padding: center;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+}
+
+.btn-editar:hover,
+.btn-excluir:hover {
+  background-color: #9e51ff;
+}
