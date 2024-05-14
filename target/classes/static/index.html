@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8" />
+<meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+<link rel="stylesheet" type="text/css" href="\styles\tela-principal.css"/>
+<title>LadyTech</title>
+
+<section class="home">
+    <div class="container">
+        <img src="\images\login.jpg" alt="Login" class="login.jpg" width="388" height=auto >
+        <form class="form" method="post" action="/login-usuario">
+            <label>Login</label> <br>
+            <input type="text" id="name" name="name">  <br>
+            <label>Senha</label><br>
+            <input type="password" id="senha" name="senha"> <br>
+            <button>Entrar</button>
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="github">
+
+            </div>
+
+            <div class="github-links"></div>
+            <img src="\images\git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+            <a th:ref="https://github.com/Anabastoslps">Ana Bastos</a>
+            <div class="github">
+            </div>
+            <img src="\images\git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+            <a th:ref="https://github.com/fernandaoliverc">Fernanda Oliveira</a>
+            <div class="github">
+            </div>
+            <img src="\images\git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+            <a th:ref="https://github.com/gabisteph">Gabrielle Mestrinho</a>
+            <div class="github">
+            </div>
+            <img src="\images\git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+            <a th:ref="https://github.com/iingrud">Ingrid </a>
+            <div class="github">
+            </div>
+            <img src="\images\git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+            <a th:ref="https://github.com/jessikaneves">Jéssika Neves</a>
+            <div class="github">
+            </div>
+            <img src="\images\git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+            <a th:ref="https://github.com/Kgisely">Ké</a>
+        </div>
+    </div>
+    </div>
+</footer>
+</body>
+</html>
