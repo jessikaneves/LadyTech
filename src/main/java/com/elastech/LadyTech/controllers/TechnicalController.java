@@ -27,29 +27,5 @@ public class TechnicalController {
 		return calledRepository.findAll();
 	}
 
-	// visualizar apenas um chamado
-	@GetMapping("/{idCalled}")
-	private Called getCalledById(@PathVariable long idCalled) {
-		return calledRepository.findById(idCalled).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
-	}
 
-	// atualizar status
-	@PatchMapping("/status/{idCalled}")
-	private Called updateStatus(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
-		Called called = calledRepository.findById(idCalled)
-				.orElseThrow(() -> new RuntimeException("Técnico não encontrado"));
-		// set em cada um dos atributos autalizados com novo valor do tecnicoupdate
-		called.setStatus(calledUpdate.getStatus());
-		return calledRepository.save(called);
-	}
-
-	// atualizar prioridade
-	@PatchMapping("/priority/{idCalled}")
-	private Called updatePriority(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
-		Called called = calledRepository.findById(idCalled)
-				.orElseThrow(() -> new RuntimeException("Técnico não encontrado"));
-		// set em cada um dos atributos autalizados com novo valor do tecnicoupdate
-		called.setPriority(calledUpdate.getPriority());
-		return calledRepository.save(called);
-	}
 }
