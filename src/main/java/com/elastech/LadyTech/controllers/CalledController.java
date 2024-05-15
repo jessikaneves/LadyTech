@@ -24,6 +24,7 @@ public class CalledController {
 	@Autowired
 	private CalledRepository calledRepository;
 
+
 	@PostMapping("/create-called")
 	public ResponseEntity<String> createCalled(@RequestBody Called called) {
 		Long idTechnical = called.getTechnical().getIdTechnical();
@@ -54,7 +55,7 @@ public class CalledController {
 		return calledRepository.findById(idCalled).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
 	}
 
-	// atualizar status
+	
 	@PatchMapping("update/status/{idCalled}")
 	private Called updateStatus(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
 		Called called = calledRepository.findById(idCalled)
@@ -64,7 +65,6 @@ public class CalledController {
 		return calledRepository.save(called);
 	}
 
-	// atualizar prioridade
 	@PatchMapping("update/priority/{idCalled}")
 	private Called updatePriority(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
 		Called called = calledRepository.findById(idCalled)
@@ -73,4 +73,5 @@ public class CalledController {
 		called.setPriority(calledUpdate.getPriority());
 		return calledRepository.save(called);
 	}
+
 }
