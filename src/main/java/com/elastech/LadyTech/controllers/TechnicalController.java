@@ -3,6 +3,7 @@ package com.elastech.LadyTech.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.elastech.LadyTech.models.Called;
 import com.elastech.LadyTech.repositories.CalledRepository;
 
-@RestController
+@Controller
 @RequestMapping("/technical")
 public class TechnicalController {
 	
