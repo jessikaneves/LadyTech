@@ -45,63 +45,19 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Usuário</th>
                                 <th>Título</th>
                                 <th>Data e Hora</th>
-                                <th>Prioridade</th>
                                 <th>Descrição</th>
-                                <th>Status</th>
+                                <th > Status </th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">1</td>
-                                <td th:text="${chamado.usuario}">Usuário A</td>
-                                <td th:text="${chamado.titulo}">Tarefa 1</td>
-                                <td th:text="${chamado.dataHora}">2024-05-07 10:00</td>
-                                <td th:text="${chamado.prioridade}">Alta</td>
-                                <td th:text="${chamado.descricao}">Caiu uma tecla do teclado.</td>
-                                <td>
-                                    <select>
-                                        <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
-                                        <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
-                                        <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
-                                        <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">2</td>
-                                <td th:text="${chamado.usuario}">Usuário B</td>
-                                <td th:text="${chamado.titulo}">Tarefa 2</td>
-                                <td th:text="${chamado.dataHora}">2024-05-08 12:00</td>
-                                <td th:text="${chamado.prioridade}">Média</td>
-                                <td th:text="${chamado.descricao}">Computador sem memória.</td>
-                                <td>
-                                <select>
-                                    <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
-                                    <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
-                                    <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
-                                    <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
-                                </select>
-                                </td>
-                            </tr>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">3</td>
-                                <td th:text="${chamado.usuario}">Usuário C</td>
-                                <td th:text="${chamado.titulo}">Tarefa 3</td>
-                                <td th:text="${chamado.dataHora}">2024-05-09 14:00</td>
-                                <td th:text="${chamado.prioridade}">Baixa</td>
-                                <td th:text="${chamado.descricao}">Preciso de um fone de ouvido.</td>
-                                <td>
-                                <select>
-                                    <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
-                                    <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
-                                    <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
-                                    <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
-                                </select>
-                                </td>
-                            </tr>
+                            <tbody th:each="chamado : ${chamados}">
+                            <tr>
+                                <td th:text="${chamado.idCalled}"></td>
+                                <td th:text="${chamado.title}"></td>
+                                <td th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}"></td>
+                                <td th:text="${chamado.description}"></td>
+                                <th th:text="${chamado.status}"></th>
                             </tbody>
                         </table>
                         <!-- INSIRA AQUI O QUE VOCÊ QUER ADICIONAR -->
