@@ -170,7 +170,7 @@ public class AdministratorController {
 
 			updateUser.setAdministrator(updateUser.getAdministrator());
 			updateUser.setAdministratorName(updateUser.getAdministratorName());
-			updateUser.setRegisterDate(updateUser.getRegisterDate());
+			//updateUser.setRegisterDate(updateUser.getRegisterDate());
 
 			userRepository.save(updateUser);
 
