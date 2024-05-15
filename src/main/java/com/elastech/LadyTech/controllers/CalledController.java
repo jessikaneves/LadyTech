@@ -58,9 +58,9 @@ public class CalledController {
 		called.setStatus("Aguardando Técnico");
 		calledRepository.save(called);
 		model.addAttribute("success", "Chamado cadastrado com sucesso!");
-		return "redirect:/called/new-called";
+		return "redirect:/user/consult-called";
 	}
-	
+
 	@GetMapping("/consult-called")
 	private String getAllCalled(Model model) {
 		List<Called> called = calledRepository.findAll();
@@ -74,7 +74,7 @@ public class CalledController {
 		return calledRepository.findById(idCalled).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
 	}
 
-	@GetMapping("/new-called")
+	@GetMapping("/create-called")
 	private String getNewCalled() {
 		return "usuario-novo-chamado";
 	}

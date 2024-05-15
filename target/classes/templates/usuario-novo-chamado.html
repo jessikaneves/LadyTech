@@ -19,12 +19,10 @@
         <div class="sidebar">
             <h2>Lady Tech</h2>
             <ul>
-                <li><a href="#"><i class="fas fa-user"></i>Bem vinda(o)</a></li>
-                <li><a th:href="@{/called/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
-                <li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a>
-                </li>
-                </li>
-                <li><a th:href="@{/called/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
+                <li><a href="#"><i class="fas fa-user"></i>Bem vinda(o)<label th:text="${nome_usuariologado}"></label></a></li>
+                <li><a th:href="@{/user/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+                <li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a></li>
+                <li><a th:href="@{/user/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
                 <li><a th:href="@{/autentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
             </ul>
         </div>
@@ -39,11 +37,6 @@
                             <form class="flip-card__form" action="" th:action="@{/called/create-called}" method="post">
                                 <input class="flip-card__input" name="title" placeholder="Titulo" type="text" th:value="${title}">
                                 <input class="flip-card_description_input" name="description" placeholder="Descrição" type="text" th:value="${description}">
-                                <label for="idUser">Usuário:</label>
-                                <select id="idUser">
-                                    <option value="1">Usuario teste</option>
-                                </select>
-                                <hr>
                                 <button class="flip-card__btn" type="submit">Salvar</button>
                             </form>
                         </div>
@@ -52,10 +45,8 @@
             </div>
         </div>
     </div>
-    </div>
 
     <!-- CARD TERMINA AQUI -->
 </body>
 
-</html>
 </html>
