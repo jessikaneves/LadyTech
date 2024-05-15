@@ -34,7 +34,7 @@ public class AutenticationController {
 		User user = userRepository.findByUserName(username);
 		if (user != null && user.getPassword().equals(password)) {
 			session.setAttribute("usuarioLogado", user);
-			return "redirect:/usuario-historico";
+			return "redirect:/user/consult-called";
 		}
 
 		Technical technical = technicalRepository.findByUserName(username);

@@ -24,22 +24,26 @@ public class CalledController {
 	@Autowired
 	private CalledRepository calledRepository;
 
-
+	@GetMapping("/create-called")
+	private String getCalled(Model model){
+		model.addAttribute("called", new Called());
+		return "usuario-novo-chamado";
+	}
 	@PostMapping("/create-called")
-	public ResponseEntity<String> createCalled(@RequestBody Called called) {
+	public String createCalled(@ModelAttribute("called") Called called, Model model) {
 		Long idTechnical = called.getTechnical().getIdTechnical();
 
 		Optional<Technical> technical = technicalRepository.findById(idTechnical);
 
 		if (technical.isEmpty()) {
-			return ResponseEntity.badRequest().body("Técnico não encontrado!");
-
+			model.addAttribute("error", "Chamado não encontrado.");
+			return "redirect:/called/create-called";
 		} else {
 			String technicalName = technical.get().getName();
 
 			called.setTechnicalName(technicalName);
 			calledRepository.save(called);
-			return ResponseEntity.ok("Chamado criado com sucesso!");
+			return "redirect:/called/create-called";
 
 		}
 	}
