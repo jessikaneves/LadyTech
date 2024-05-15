@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Chamado</title>
-    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/static/styles/styles-padrao.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -36,12 +36,14 @@
                     <div class="card-content">
                         <div class="row">
                             <h1 class="font-titles">Novo Chamado</h1>
-                            <form class="flip-card__form" action="" th:action="@{/save}" method="post">
-                                <input class="flip-card__input" name="id" placeholder="ID" type="text" th:value="${id}">
-                                <input class="flip-card__input" name="user" placeholder="User" type="email" th:value="${user}">
+                            <form class="flip-card__form" action="" th:action="@{/called/create-called}" method="post">
                                 <input class="flip-card__input" name="title" placeholder="Titulo" type="text" th:value="${title}">
-                                <input class="flip-card__input" name="date" placeholder="Data/Hora" type="date" th:value="${date}">
                                 <input class="flip-card_description_input" name="description" placeholder="Descrição" type="text" th:value="${description}">
+                                <label for="idUser">Usuário:</label>
+                                <select id="idUser">
+                                    <option value="1">Usuario teste</option>
+                                </select>
+                                <hr>
                                 <button class="flip-card__btn" type="submit">Salvar</button>
                             </form>
                         </div>
