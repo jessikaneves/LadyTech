@@ -25,9 +25,7 @@
         <ul>
             <li><a href="#" ><i class="fas fa-user"></i>Bem vinda(o) <b th:text="${name}" /></a></li>
             <li><a th:href="@{/user/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
-            <li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a>
-            </li>
-            </li>
+            <li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a></li>
             <li><a th:href="@{/user/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
             <li><a th:href="@{/autentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
         </ul>
@@ -44,68 +42,19 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Usuário</th>
                                 <th>Título</th>
                                 <th>Data e Hora</th>
-                                <th>Prioridade</th>
                                 <th>Descrição</th>
                                 <th>Status</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">1</td>
-                                <td th:text="${chamado.usuario}">Usuário A</td>
-                                <td th:text="${chamado.titulo}">Tarefa 1</td>
-                                <td th:text="${chamado.dataHora}">2024-05-07 10:00</td>
-                                <td th:text="${chamado.prioridade}">Alta</td>
-                                <td th:text="${chamado.descricao}">Caiu uma tecla do teclado.</td>
-                                <td th:text="${chamado.status}">Aguardando técnico</td>
-                            </tr>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">2</td>
-                                <td th:text="${chamado.usuario}">Usuário B</td>
-                                <td th:text="${chamado.titulo}">Tarefa 2</td>
-                                <td th:text="${chamado.dataHora}">2024-05-08 12:00</td>
-                                <td th:text="${chamado.prioridade}">Média</td>
-                                <td th:text="${chamado.descricao}">Computador sem memória.</td>
-                                <td th:text="${chamado.status}">Aguardando técnico</td>
-                            </tr>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">3</td>
-                                <td th:text="${chamado.usuario}">Usuário C</td>
-                                <td th:text="${chamado.titulo}">Tarefa 3</td>
-                                <td th:text="${chamado.dataHora}">2024-05-09 14:00</td>
-                                <td th:text="${chamado.prioridade}">Baixa</td>
-                                <td th:text="${chamado.descricao}">Preciso de um fone de ouvido.</td>
-                                <td th:text="${chamado.status}">Aguardando técnico</td>
-                            </tr>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">4</td>
-                                <td th:text="${chamado.usuario}">Usuário D</td>
-                                <td th:text="${chamado.titulo}">Tarefa 4</td>
-                                <td th:text="${chamado.dataHora}">2024-05-03 14:00</td>
-                                <td th:text="${chamado.prioridade}">Baixa</td>
-                                <td th:text="${chamado.descricao}">Preciso trocar de pilha para por no mouse.</td>
-                                <td th:text="${chamado.status}">Em atendimento</td>
-                            </tr>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">5</td>
-                                <td th:text="${chamado.usuario}">Usuário E</td>
-                                <td th:text="${chamado.titulo}">Tarefa 5</td>
-                                <td th:text="${chamado.dataHora}">2024-05-01 14:35</td>
-                                <td th:text="${chamado.prioridade}">Alta</td>
-                                <td th:text="${chamado.descricao}">Estou sem acesso.</td>
-                                <td th:text="${chamado.status}">Escalado para outro setor</td>
-                            </tr>
-                            <tr th:each="chamado : ${chamados}">
-                                <td th:text="${chamado.id}">6</td>
-                                <td th:text="${chamado.usuario}">Usuário F</td>
-                                <td th:text="${chamado.titulo}">Tarefa 6</td>
-                                <td th:text="${chamado.dataHora}">2024-04-28 08:37</td>
-                                <td th:text="${chamado.prioridade}">Média</td>
-                                <td th:text="${chamado.descricao}">Login bloqueado.</td>
-                                <td th:text="${chamado.status}">Finalizado</td>
+                            <tbody th:each="chamado : ${chamados}">
+                            <tr>
+                                <td th:text="${chamado.idCalled}"></td>
+                                <td th:text="${chamado.title}"></td>
+                                <td th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}"></td>
+                                <td th:text="${chamado.description}"></td>
+                                <td th:text="${chamado.status}"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -116,7 +65,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 <!-- CARD TERMINA AQUI -->
 </body>

@@ -1,17 +1,12 @@
 package com.elastech.LadyTech.models;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "chamado")
@@ -23,9 +18,8 @@ public class Called {
 	@Column
 	private String title;
 
-	@Column(name = "register_called", updatable = false)
-	@CreationTimestamp
-	private Timestamp registerDate;
+	@Column(name = "register_called", nullable = false, updatable = false)
+	private LocalDateTime registerDate;
 
 	@Column
 	private String priority;
@@ -51,6 +45,7 @@ public class Called {
 	private Technical technical;
 
 	public Called() {
+		this.registerDate = LocalDateTime.now();
 	}
 
 	public long getIdCalled() {
@@ -69,12 +64,12 @@ public class Called {
 		this.title = title;
 	}
 
-	public Timestamp getRegisterDate() {
+	public LocalDateTime getRegisterDate() {
 		return registerDate;
 	}
 
-	public void setRegisterDate(Timestamp registerDate) {
-		this.registerDate = registerDate;
+	public void setRegisterDate(LocalDateTime registerDate) {
+		this.registerDate = LocalDateTime.now();
 	}
 
 	public String getPriority() {
