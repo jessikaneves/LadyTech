@@ -39,11 +39,6 @@
                             <form class="flip-card__form" action="" th:action="@{/called/create-called}" method="post">
                                 <input class="flip-card__input" name="title" placeholder="Titulo" type="text" th:value="${title}">
                                 <input class="flip-card_description_input" name="description" placeholder="Descrição" type="text" th:value="${description}">
-                                <label for="idUser">Usuário:</label>
-                                <select id="idUser">
-                                    <option value="1">Usuario teste</option>
-                                </select>
-                                <hr>
                                 <button class="flip-card__btn" type="submit">Salvar</button>
                             </form>
                         </div>
