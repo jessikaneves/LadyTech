@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.elastech.LadyTech.models.Called;
 import com.elastech.LadyTech.models.Technical;
@@ -27,8 +24,8 @@ public class CalledController {
 	@Autowired
 	private CalledRepository calledRepository;
 
-	@PostMapping("/creat-called")
-	public ResponseEntity<String> creatCalled(@RequestBody Called called) {
+	@PostMapping("/create-called")
+	public ResponseEntity<String> createCalled(@RequestBody Called called) {
 		Long idTechnical = called.getTechnical().getIdTechnical();
 
 		Optional<Technical> technical = technicalRepository.findById(idTechnical);
@@ -51,5 +48,29 @@ public class CalledController {
 		List<Called> called = calledRepository.findAll();
 		model.addAttribute("chamados", called);
 		return "administrador-tela-inicial";
+	}
+	@GetMapping("/byId/{idCalled}")
+	private Called getCalledById(@PathVariable long idCalled) {
+		return calledRepository.findById(idCalled).orElseThrow(() -> new RuntimeException("Chamado não encontrado"));
+	}
+
+	// atualizar status
+	@PatchMapping("update/status/{idCalled}")
+	private Called updateStatus(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
+		Called called = calledRepository.findById(idCalled)
+				.orElseThrow(() -> new RuntimeException("Técnico não encontrado"));
+		// set em cada um dos atributos autalizados com novo valor do tecnicoupdate
+		called.setStatus(calledUpdate.getStatus());
+		return calledRepository.save(called);
+	}
+
+	// atualizar prioridade
+	@PatchMapping("update/priority/{idCalled}")
+	private Called updatePriority(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
+		Called called = calledRepository.findById(idCalled)
+				.orElseThrow(() -> new RuntimeException("Técnico não encontrado"));
+		// set em cada um dos atributos autalizados com novo valor do tecnicoupdate
+		called.setPriority(calledUpdate.getPriority());
+		return calledRepository.save(called);
 	}
 }
