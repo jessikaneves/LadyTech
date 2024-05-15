@@ -1,132 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamados em aberto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="\styles\tecnico-chamados-abertos.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <title>Chamados Abertos</title>
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<nav class="menu-lateral">
-    <div class="btn-expandir">
-        <i class="bi bi-list"></i>
+
+<!-- MENU LATERAL COMEÇA AQUI -->
+<body>
+
+<!-- MENU LATERAL COMEÇA AQUI -->
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Lady Tech</h2>
+        <ul>
+            <li><a th:href="@{/technical/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+            <li><a href="#"><i class="fas fa-user"></i>Perfil</a></li>
+            <li><a th:href="@{/technical/consult-called-open}"><i class="fas fa-search"></i>Chamados Abertos</a></li>
+            <li><a th:href="@{/technical/consult-called}"><i class="fas fa-headset"></i>Histórico Chamados</a></li>
+            <li><a th:href="@{/autentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+        </ul>
     </div>
-
-    <ul>
-        <li class="item">
-            <a href="#">
-                <span class="icon"><i class="bi bi-person-circle"></i></span>
-                <span class="txt-link">User logado</span>
-            </a>
-        </li>
-        <br>
-        <br>
-        <li class="item-menu ativo">
-            <a href="tecnico-chamados-abertos.html">
-                <span class="icon"><i class="bi bi-table"></i></span>
-                <span class="txt-link">Chamados</span>
-            </a>
-        </li>
-        <li class="item-menu">
-            <a href="tecnico-historico.html">
-                <span class="icon"><i class="bi bi-table"></i></span>
-                <span class="txt-link">Histórico</span>
-            </a>
-        </li>
-        <br>
-        <br>
-        <li class="item-menu">
-            <a href="index.html">
-                <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                <span class="txt-link">Sair</span>
-            </a>
-        </li>
-    </ul>
-
-</nav>
-<div class="mt-5">
 </div>
+<!-- MENU LATERAL TERMINA AQUI -->
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="table-container mt-5">
-                <h1 class="mb-3">
-                    Chamados em aberto
-                </h1>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Usuário</th>
-                        <th>Título</th>
-                        <th>Data e Hora</th>
-                        <th>Prioridade</th>
-                        <th>Descrição</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="chamado : ${chamados}">
-                        <td th:text="${chamado.id}">1</td>
-                        <td th:text="${chamado.usuario}">Usuário A</td>
-                        <td th:text="${chamado.titulo}">Tarefa 1</td>
-                        <td th:text="${chamado.dataHora}">2024-05-07 10:00</td>
-                        <td th:text="${chamado.prioridade}">Alta</td>
-                        <td th:text="${chamado.descricao}">Caiu uma tecla do teclado.</td>
-                        <td>
-                            <select>
-                                <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
-                                <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
-                                <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
-                                <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr th:each="chamado : ${chamados}">
-                        <td th:text="${chamado.id}">2</td>
-                        <td th:text="${chamado.usuario}">Usuário B</td>
-                        <td th:text="${chamado.titulo}">Tarefa 2</td>
-                        <td th:text="${chamado.dataHora}">2024-05-08 12:00</td>
-                        <td th:text="${chamado.prioridade}">Média</td>
-                        <td th:text="${chamado.descricao}">Computador sem memória.</td>
-                        <td>
-                        <select>
-                            <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
-                            <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
-                            <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
-                            <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
-                        </select>
-                        </td>
-                    </tr>
-                    <tr th:each="chamado : ${chamados}">
-                        <td th:text="${chamado.id}">3</td>
-                        <td th:text="${chamado.usuario}">Usuário C</td>
-                        <td th:text="${chamado.titulo}">Tarefa 3</td>
-                        <td th:text="${chamado.dataHora}">2024-05-09 14:00</td>
-                        <td th:text="${chamado.prioridade}">Baixa</td>
-                        <td th:text="${chamado.descricao}">Preciso de um fone de ouvido.</td>
-                        <td>
-                        <select>
-                            <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
-                            <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
-                            <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
-                            <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
-                        </select>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+<!-- CARD COMEÇA AQUI -->
+<div class="container custom-container">
+    <div class="row">
+        <div class="col s12 offset-s1">
+            <div class="card custom-card">
+                <div class="card-content">
+                    <div class="row">
+                        <h1 class="font-titles">Chamados Abertos</h1>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Usuário</th>
+                                <th>Título</th>
+                                <th>Data e Hora</th>
+                                <th>Prioridade</th>
+                                <th>Descrição</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="chamado : ${chamados}">
+                                <td th:text="${chamado.id}">1</td>
+                                <td th:text="${chamado.usuario}">Usuário A</td>
+                                <td th:text="${chamado.titulo}">Tarefa 1</td>
+                                <td th:text="${chamado.dataHora}">2024-05-07 10:00</td>
+                                <td th:text="${chamado.prioridade}">Alta</td>
+                                <td th:text="${chamado.descricao}">Caiu uma tecla do teclado.</td>
+                                <td>
+                                    <select>
+                                        <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
+                                        <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
+                                        <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
+                                        <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr th:each="chamado : ${chamados}">
+                                <td th:text="${chamado.id}">2</td>
+                                <td th:text="${chamado.usuario}">Usuário B</td>
+                                <td th:text="${chamado.titulo}">Tarefa 2</td>
+                                <td th:text="${chamado.dataHora}">2024-05-08 12:00</td>
+                                <td th:text="${chamado.prioridade}">Média</td>
+                                <td th:text="${chamado.descricao}">Computador sem memória.</td>
+                                <td>
+                                <select>
+                                    <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
+                                    <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
+                                    <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
+                                    <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr th:each="chamado : ${chamados}">
+                                <td th:text="${chamado.id}">3</td>
+                                <td th:text="${chamado.usuario}">Usuário C</td>
+                                <td th:text="${chamado.titulo}">Tarefa 3</td>
+                                <td th:text="${chamado.dataHora}">2024-05-09 14:00</td>
+                                <td th:text="${chamado.prioridade}">Baixa</td>
+                                <td th:text="${chamado.descricao}">Preciso de um fone de ouvido.</td>
+                                <td>
+                                <select>
+                                    <option th:selected="${chamado.status == 'Aguardando técnico'}">Aguardando técnico</option>
+                                    <option th:selected="${chamado.status == 'Em atendimento'}">Em atendimento</option>
+                                    <option th:selected="${chamado.status == 'Escalado para outro setor'}">Escalado para outro setor</option>
+                                    <option th:selected="${chamado.status == 'Finalizado'}">Finalizado</option>
+                                </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- INSIRA AQUI O QUE VOCÊ QUER ADICIONAR -->
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- CARD TERMINA AQUI -->
 </body>
+
 </html>

@@ -19,7 +19,7 @@
         <div class="sidebar">
             <h2>Lady Tech</h2>
             <ul>
-                <li><a href="#"><i class="fas fa-user"></i>Bem vinda(o)</a></li>
+                <li><a href="#"><i class="fas fa-user"></i>Bem vinda(o)<label th:text="${nome_usuariologado}"></label></a></li>
                 <li><a th:href="@{/user/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
                 <li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a>
                 </li>
@@ -38,7 +38,7 @@
                             <h1 class="font-titles">Novo Chamado</h1>
                             <form class="flip-card__form" action="" th:action="@{/save}" method="post">
                                 <input class="flip-card__input" name="id" placeholder="ID" type="text" th:value="${id}">
-                                <input class="flip-card__input" name="user" placeholder="User" type="email" th:value="${user}">
+                                <input class="flip-card__input" name="user" placeholder="User" type="text" th:value="${user}">
                                 <input class="flip-card__input" name="title" placeholder="Titulo" type="text" th:value="${title}">
                                 <input class="flip-card__input" name="date" placeholder="Data/Hora" type="date" th:value="${date}">
                                 <input class="flip-card_description_input" name="description" placeholder="Descrição" type="text" th:value="${description}">
