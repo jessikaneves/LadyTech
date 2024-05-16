@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/styles.js"></script>
 </head>
 <body>
 
@@ -48,7 +50,8 @@
                                 <th>Título</th>
                                 <th>Data e Hora</th>
                                 <th>Descrição</th>
-                                <th > Status </th>
+                                <th>Status</th>
+                                <th for="status"> Atualizar Status </th>
                             </tr>
                             </thead>
                             <tbody th:each="chamado : ${chamados}">
@@ -57,7 +60,18 @@
                                 <td th:text="${chamado.title}"></td>
                                 <td th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}"></td>
                                 <td th:text="${chamado.description}"></td>
-                                <th th:text="${chamado.status}"></th>
+                                <td th:text="${chamado.status}"></td>
+                                <th ><!-- Atualizar o status do chamado pelo tecnico -->
+                                    <form th:method="post" class="flip-card__form" th:action="@{/called/update/status/{id}(id=${chamado.idCalled})}">
+                                        <input type="hidden" name="_method" value="patch"/>
+                                        <select id="status" name="status" class="tecnico" >
+                                            <option th:selected="${chamado.status=='Em atendimento'}" th:value="'Em atendimento'">Em atendimento</option>
+                                            <option th:selected="${chamado.status=='Escalado para outro setor'}" th:value="'Escalado para outro setor'">Escalado para outro setor</option>
+                                            <option th:selected="${chamado.status=='Finalizado'}" th:value="'Finalizado'">Finalizado</option>
+                                        </select>
+                                        <button type="submit">enviar</button>
+                                    </form>
+                                </th>
                             </tbody>
                         </table>
                         <!-- INSIRA AQUI O QUE VOCÊ QUER ADICIONAR -->

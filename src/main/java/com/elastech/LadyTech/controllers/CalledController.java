@@ -79,14 +79,16 @@ public class CalledController {
 		return "usuario-novo-chamado";
 	}
 
-	@PatchMapping("update/status/{idCalled}")
-	private Called updateStatus(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
+	@PatchMapping("/update/status/{idCalled}")
+	private String updateStatus(@PathVariable long idCalled, @RequestParam("status") String status) {
 		Called called = calledRepository.findById(idCalled)
 				.orElseThrow(() -> new RuntimeException("Técnico não encontrado"));
 		// set em cada um dos atributos autalizados com novo valor do tecnicoupdate
-		called.setStatus(calledUpdate.getStatus());
-		return calledRepository.save(called);
+		called.setStatus(status);
+		calledRepository.save(called);
+        return "redirect:/technical/consult-called-open";
 	}
+
 
 	@PatchMapping("update/priority/{idCalled}")
 	private Called updatePriority(@PathVariable long idCalled, @RequestBody Called calledUpdate) {
