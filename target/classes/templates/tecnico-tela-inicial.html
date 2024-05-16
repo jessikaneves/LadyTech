@@ -52,22 +52,16 @@
                                         <table>
                                             <thead>
                                             <tr>
-                                                <th>ID</th>
                                                 <th>Título</th>
                                                 <th>Data de Registro</th>
                                                 <th>Prioridade</th>
                                                 <th>Descrição</th>
                                                 <th>Status</th>
-                                                <th>Departamento</th>
-                                                <th>Nome Técnico</th>
-                                                <th>Usuário</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
                                             <tr th:each="chamado : ${chamados}">
-                                                <td th:text="${chamado.idCalled}">ID</td>
-                                                <td th:text="${chamado.user.name}">Usuário</td>
                                                 <td th:text="${chamado.title}">Título</td>
                                                 <td th:text="${chamado.registerDate}">Data de Registro</td>
                                                 <td th:text="${chamado.priority}">Prioridade</td>

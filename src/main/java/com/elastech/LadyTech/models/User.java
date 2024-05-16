@@ -1,6 +1,7 @@
 package com.elastech.LadyTech.models;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -30,11 +31,11 @@ public class User {
 
 	@Column
 	private String phone;
+/*
+	@Column(name = "register_called", nullable = false, updatable = false)
+	private LocalDateTime registerDate;
 
-	@Column(name = "register_user", updatable = false)
-	@CreationTimestamp
-	private Timestamp registerDate;
-
+*/
 	@Column
 	private String userName;
 
@@ -85,15 +86,15 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	public Timestamp getRegisterDate() {
+/*
+	public LocalDateTime getRegisterDate() {
 		return registerDate;
 	}
 
-	public void setRegisterDate(Timestamp registerDate) {
+	public void setRegisterDate(LocalDateTime registerDate) {
 		this.registerDate = registerDate;
 	}
-
+*/
 	public String getUserName() {
 		return userName;
 	}

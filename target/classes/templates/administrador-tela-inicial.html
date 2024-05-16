@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Chamados</title>
+	<title>Gráficos</title>
 	<link rel="stylesheet" type="text/css" href="/styles/styles.css" />
 	<link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -32,7 +32,7 @@
 				<li><a th:href="@{/called/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
 				<li><a th:href="@{/administrator/graphic-administrator}"><i class="fas fa-chart-pie"></i>Gráficos</a>
 				</li>
-				<li><a th:href="@{/autentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+				<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
 			</ul>
 		</div>
 	</div>
@@ -55,31 +55,22 @@
 											</h1>
 											<table>
 												<thead>
-													<tr>
-														<th>ID</th>
-														<th>Título</th>
-														<th>Data de Registro</th>
-														<th>Prioridade</th>
-														<th>Descrição</th>
-														<th>Status</th>
-														<th>Departamento</th>
-														<th>Nome Técnico</th>
-														<th>Usuário</th>
-													</tr>
+												<tr>
+													<th>ID</th>
+													<th>Título</th>
+													<th>Data e Hora</th>
+													<th>Descrição</th>
+													<th>Status</th>
+												</tr>
 												</thead>
-												<tbody>
-
-													<tr th:each="chamado : ${chamados}">
-														<td th:text="${chamado.idCalled}">ID</td>
-														<td th:text="${chamado.title}">Título</td>
-														<td th:text="${chamado.registerDate}">Data de Registro</td>
-														<td th:text="${chamado.priority}">Prioridade</td>
-														<td th:text="${chamado.description}">Descrição</td>
-														<td th:text="${chamado.status}">Status</td>
-														<td th:text="${chamado.departament}">Departamento</td>
-														<td th:text="${chamado.technicalName}">Nome Técnico</td>
-														<td th:text="${chamado.user.name}">Usuário</td>
-													</tr>
+												<tbody th:each="chamado : ${chamados}">
+												<tr>
+													<td th:text="${chamado.idCalled}"></td>
+													<td th:text="${chamado.title}"></td>
+													<td th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}"></td>
+													<td th:text="${chamado.description}"></td>
+													<td th:text="${chamado.status}"></td>
+												</tr>
 												</tbody>
 											</table>
 
