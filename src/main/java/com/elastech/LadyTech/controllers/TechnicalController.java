@@ -36,8 +36,8 @@ public class TechnicalController {
 	}
 	@GetMapping("/consult-called-open")
 	private String getCalledOpen(Model model) {
-		String status = "Aguardando Técnico";
-		List<Called> called = calledRepository.findByStatus(status);
+		String status = "Finalizado";
+		List<Called> called = calledRepository.findByStatusNot(status);
 		model.addAttribute("chamados", called);
 		return "tecnico-chamados-abertos";
 	}
