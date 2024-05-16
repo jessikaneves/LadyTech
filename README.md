@@ -41,6 +41,6 @@ Este painel oferece uma visão abrangente do uso do sistema, fornecendo dados es
 
 ## ✨ Contribuição
 
-<p>Este projeto foi desenvolvido por <a href="https://github.com/Anabastoslps">Anna Rita</a>, <a href="https://github.com/fernandaoliverc">Fernanda Danielle</a>, <a href="https://github.com/gabisteph">Gabrielle Sthepanie</a>, <a href="https://github.com/iingrud">Ingrid Santos</a>, <a href="https://github.com/jessikaneves">Jéssika Neves</a>, <a href="https://github.com/Kgisely">Ketheley Gisely</a>.</p>
+<p>Este projeto foi desenvolvido por <a href="https://github.com/Anabastoslps">Anna Rita</a>, <a href="https://github.com/fernandaoliverc">Fernanda Danielle</a>, <a href="https://github.com/gabisteph">Gabrielle Stephanie</a>, <a href="https://github.com/iingrud">Ingrid Santos</a>, <a href="https://github.com/jessikaneves">Jéssika Neves</a>, <a href="https://github.com/Kgisely">Ketheley Gisely</a>.</p>
 
 </div>
