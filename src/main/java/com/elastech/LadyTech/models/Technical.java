@@ -23,11 +23,17 @@ public class Technical {
 	private String name;
 
 	@Column
+	private String phone;
+
+	@Column
 	private String userName;
 	@Column
 	private String email;
 	@Column
 	private String password;
+
+	@Column
+	private boolean active;
 
 	@Column
 	@Enumerated(EnumType.STRING)
@@ -57,6 +63,14 @@ public class Technical {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getUserName() {
@@ -105,6 +119,14 @@ public class Technical {
 
 	public void setAdministratorName(String administratorName) {
 		this.administratorName = administratorName;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 }
