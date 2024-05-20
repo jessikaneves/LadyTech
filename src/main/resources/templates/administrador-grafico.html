@@ -19,7 +19,7 @@
     <div class="sidebar">
         <h2>Lady Tech</h2>
         <ul>
-            <li><a href="#"><i class="fas fa-user"></i>Bem Vindo(a)</a></li>
+            <li><a href="#">Bem Vindo(a): <br><i class="fas fa-user"></i><span th:text="${session.name}"></span></a></li>
             <li><a th:href="@{/called/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
             <li><a th:href="@{/administrator/create-user}"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
             </li>

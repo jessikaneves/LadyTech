@@ -1,12 +1,15 @@
 package com.elastech.LadyTech.models;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "chamado")
@@ -18,7 +21,7 @@ public class Called {
 	@Column
 	private String title;
 
-	@Column(name = "register_called", nullable = false, updatable = false)
+	@Column(name = "register_called", updatable = false)
 	private LocalDateTime registerDate;
 
 	@Column
@@ -37,15 +40,22 @@ public class Called {
 	private String technicalName;
 
 	@ManyToOne
-	@JoinColumn(name = "id_user")
-	private User user;
-
-	@ManyToOne
 	@JoinColumn(name = "id_technical")
 	private Technical technical;
 
+	@ManyToOne
+	@JoinColumn(name = "id_user")
+	private User user;
+
+	@Column(name = "name_user")
+	private String userName;
+
+	@Column(name = "departamento_user")
+	private String departamentName;
+
 	public Called() {
 		this.registerDate = LocalDateTime.now();
+
 	}
 
 	public long getIdCalled() {
@@ -112,6 +122,14 @@ public class Called {
 		this.technicalName = technicalName;
 	}
 
+	public Technical getTechnical() {
+		return technical;
+	}
+
+	public void setTechnical(Technical technical) {
+		this.technical = technical;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -120,12 +138,12 @@ public class Called {
 		this.user = user;
 	}
 
-	public Technical getTechnical() {
-		return technical;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setTechnical(Technical technical) {
-		this.technical = technical;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

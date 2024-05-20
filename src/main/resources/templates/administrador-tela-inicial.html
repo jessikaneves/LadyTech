@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -17,72 +18,90 @@
 
 <body>
 
-<div class="wrapper">
-	<div class="sidebar">
-		<h2>Lady Tech</h2>
-		<ul>
-			<li><a href="#"><i class="fas fa-user"></i>Bem Vindo(a)</a></li>
-			<li><a th:href="@{/called/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
-			<li><a th:href="@{/administrator/create-user}"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
-			</li>
-			<li><a th:href="@{/administrator/create-technician}"><i class="fas fa-user-plus"></i>Cadastrar
-				Técnico</a></li>
-			<li><a th:href="@{/administrator/consult-users}"><i class="fas fa-search"></i>Consultar Usuários</a>
-			</li>
-			<li><a th:href="@{/called/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
-			<li><a th:href="@{/administrator/graphic-administrator}"><i class="fas fa-chart-pie"></i>Gráficos</a>
-			</li>
-			<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
-		</ul>
+	<div class="wrapper">
+		<div class="sidebar">
+			<h2>Lady Tech</h2>
+			<ul>
+				<li><a href="#">Bem Vindo(a): <br><i class="fas fa-user"></i><span th:text="${session.name}"></span></a>
+				</li>
+				<li><a th:href="@{/called/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+				<li><a th:href="@{/administrator/create-user}"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
+				</li>
+				<li><a th:href="@{/administrator/create-technician}"><i class="fas fa-user-plus"></i>Cadastrar
+						Técnico</a></li>
+				<li><a th:href="@{/administrator/consult-users}"><i class="fas fa-search"></i>Consultar Usuários</a>
+				</li>
+				<li><a th:href="@{/called/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
+				<li><a th:href="@{/administrator/graphic-administrator}"><i class="fas fa-chart-pie"></i>Gráficos</a>
+				</li>
+				<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+			</ul>
+		</div>
 	</div>
-</div>
 
 
-<div class="container custom-container">
-	<div class="row">
-		<div class="col s12 offset-s1">
-			<div class="card custom-card">
-				<div class="card-content">
-					<div class="row">
+	<div class="container custom-container">
+		<div class="row">
+			<div class="col s12 offset-s1">
+				<div class="card custom-card">
+					<div class="card-content">
+						<div class="row">
+							<div class="container mt-5">
+								<div class="row justify-content-center">
+									<div class="col-md-8">
+										<div class="table-container mt-5">
+											<h1 class="font-titles">
+												Lista da Chamados
+											</h1>
+											<table>
+												<thead class="tabela-cabecalho">
+													<tr>
+														<th>ID</th>
+														<th>Usuário</th>
+														<th>Título</th>
+														<th>Data de Registro</th>
+														<th>Descrição</th>
+														<th>Status</th>
+														<th>Departamento</th>
+														<th>Nome Técnico</th>
+														<th>Prioridade</th>
+														<th>Alterar Prioridade</th>
 
+													</tr>
+												</thead>
+												<tbody>
 
-						<div class="container mt-5">
-							<div class="row justify-content-center">
-								<div class="col-md-8">
-									<div class="table-container mt-5">
-										<h1 class="font-titles">
-											Lista da Chamados
-										</h1>
-										<table>
-											<thead class="tabela-cabecalho">
-											<tr>
-												<th>ID</th>
-												<th>Título</th>
-												<th>Data de Registro</th>
-												<th>Prioridade</th>
-												<th>Descrição</th>
-												<th>Status</th>
-												<th>Departamento</th>
-												<th>Nome Técnico</th>
-												<th>Usuário</th>
-											</tr>
-											</thead>
-											<tbody>
+													<tr th:each="chamado : ${chamados}">
+														<td th:text="${chamado.idCalled}">ID</td>
+														<td th:text="${chamado.userName}">Usuário</td>
+														<td th:text="${chamado.title}">Título</td>
+														<td
+															th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}">
+														</td>
+														<td th:text="${chamado.description}">Descrição</td>
+														<td th:text="${chamado.status}">Status</td>
+														<td th:text="${chamado.departament}">Departamento</td>
+														<td th:text="${chamado.technicalName}">Nome Técnico</td>
+														<td th:text="${chamado.priority}">Prioridade</td>
+														<td>
+															<form
+																th:action="@{/called/update/priority/{idCalled}(idCalled=${chamado.idCalled})}"
+																method="post">
+																<select name="priority">
+																	<option value="" disabled selected>Prioridade
+																	</option>
+																	<option value="baixo">Baixa</option>
+																	<option value="media">Média</option>
+																	<option value="alto">Alta</option>
+																</select>
+																<button type="submit">Enviar</button>
+															</form>
+														</td>
 
-											<tr th:each="chamado : ${chamados}">
-												<td th:text="${chamado.idCalled}">ID</td>
-												<td th:text="${chamado.title}">Título</td>
-												<td th:text="${chamado.registerDate}">Data de Registro</td>
-												<td th:text="${chamado.priority}">Prioridade</td>
-												<td th:text="${chamado.description}">Descrição</td>
-												<td th:text="${chamado.status}">Status</td>
-												<td th:text="${chamado.departament}">Departamento</td>
-												<td th:text="${chamado.technicalName}">Nome Técnico</td>
-												<td th:text="${chamado.user.name}">Usuário</td>
-											</tr>
-											</tbody>
-										</table>
-
+													</tr>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -92,7 +111,12 @@
 			</div>
 		</div>
 	</div>
-</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var elems = document.querySelectorAll('select');
+			var instances = M.FormSelect.init(elems, {});
+		});
+	</script>
 </body>
 
 </html>
