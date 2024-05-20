@@ -26,66 +26,39 @@ public class AuthenticationController {
 	private TechnicalRepository technicalRepository;
 	@Autowired
 	private AdministratorRepository administratorRepository;
-	@Autowired
-	private HttpSession session;
-	private User usuarioLogado = new User();
-	private Technical technicalLogado = new Technical();
-	private Administrator administratorLogado = new Administrator();
-
-
-
 
 	@PostMapping("/login")
-	public String login(@RequestParam String username, @RequestParam String password, HttpSession session) {
-
-		User user = userRepository.findByUserName(username);
+	public String login(@RequestParam String userName, @RequestParam String password, HttpSession session,
+			Model model) {
+		User user = userRepository.findByUserName(userName);
 		if (user != null && user.getPassword().equals(password)) {
-			session.setAttribute("usuarioLogado", user);
-			usuarioLogado.setName(user.getName());
-			usuarioLogado.setIdUser(user.getIdUser());
+			session.setAttribute("loggedUser", user);
+			session.setAttribute("name", user.getName());
 			return "redirect:/user/consult-called";
 		}
 
-		Technical technical = technicalRepository.findByUserName(username);
+		Technical technical = technicalRepository.findByUserName(userName);
 		if (technical != null && technical.getPassword().equals(password)) {
-			session.setAttribute("technicalLogado", technical);
-			technicalLogado = technical;
+			session.setAttribute("loggedUser", technical);
+			session.setAttribute("technicalId", technical.getIdTechnical());
+			session.setAttribute("name", technical.getName());
 			return "redirect:/technical/consult-called";
 		}
 
-		Administrator administrator = administratorRepository.findByUserName(username);
+		Administrator administrator = administratorRepository.findByUserName(userName);
 		if (administrator != null && administrator.getPassword().equals(password)) {
-			session.setAttribute("administradorLogado", administrator);
-			administratorLogado.setName(administrator.getName());
-			administratorLogado.setIdAdministrator(administrator.getIdAdministrator());
-
+			session.setAttribute("loggedUser", administrator);
+			session.setAttribute("name", administrator.getName());
 			return "redirect:/called/consult-called";
 		}
 
 		return "redirect:/";
 	}
-	@GetMapping("/login")
-	public Model usuarioHistorico(Model model, HttpSession session) {
-		if(usuarioLogado.getName()!=null){
-			model.addAttribute("nome",usuarioLogado.getName());
-
-		}
-		if(technicalLogado.getName()!=null){
-			model.addAttribute("nome",technicalLogado.getName());
-
-		}
-		if(administratorLogado.getName()!=null){
-			model.addAttribute("nome",administratorLogado.getName());
-
-		}
-		return model;
-	}
-
-
 
 	@GetMapping("/logout")
-	public String logout() {
+	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/index.html";
+		return "index";
 	}
+
 }

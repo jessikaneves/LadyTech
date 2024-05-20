@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/styles/tela-principal.css" />
+	<title>LadyTech</title>
+</head>
+
+<body>
+	<section class="home">
+		<div class="container">
+			<img src="/images/login.png" alt="Login" class="login.png" width="346" height="auto">
+			<form class="form" th:action="@{/authentication/login}" method="post">
+				<label for="userName">Usuário:</label>
+				<input type="text" id="userName" name="userName" required>
+				<label for="password">Senha:</label>
+				<input type="password" id="password" name="password" required>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="github">
+				</div>
+				<div class="github-links"></div>
+				<img src="/images/git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+				<a href="https://github.com/Anabastoslps" target="_blank">Ana Bastos</a>
+				<div class="github">
+				</div>
+				<img src="/images/git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+				<a href="https://github.com/fernandaoliverc" target="_blank">Fernanda Oliveira</a>
+				<div class="github">
+				</div>
+				<img src="/images/git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+				<a href="https://github.com/gabisteph" target="_blank">Gabrielle Mestrinho</a>
+				<div class="github">
+				</div>
+				<img src="/images/git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+				<a href="https://github.com/iingrud" target="_blank">Ingrid</a>
+				<div class="github">
+				</div>
+				<img src="/images/git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+				<a href="https://github.com/jessikaneves" target="_blank">Jéssika Neves</a>
+				<div class="github">
+				</div>
+				<img src="/images/git.png" alt="GitHub Logo" class="git.png" width="40" height="30" />
+				<a href="https://github.com/Kgisely" target="_blank">Ké</a>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

@@ -4,71 +4,70 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Histórico </title>
-    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Histórico </title>
+	<link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 
 <body>
 
 
-<div class="wrapper">
-    <div class="sidebar">
-        <h2>Lady Tech</h2>
-        <ul>
-            <li><a href="#" ><i class="fas fa-user"></i>Bem vinda(o) <b th:text="${name}" /></a></li>
-            <li><a th:href="@{/user/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
-            <li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a></li>
-            <li><a th:href="@{/user/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
-            <li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
-        </ul>
-    </div>
-</div>
-<div class="container custom-container">
-    <div class="row">
-        <div class="col s12 offset-s1">
-            <div class="card custom-card">
-                <div class="card-content">
-                    <div class="row">
-                        <h1 class="font-titles">Chamados</h1>
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Título</th>
-                                <th>Data e Hora</th>
-                                <th>Descrição</th>
-                                <th>Status</th>
-                            </tr>
-                            </thead>
-                            <tbody th:each="chamado : ${chamados}">
-                            <tr>
-                                <td th:text="${chamado.idCalled}"></td>
-                                <td th:text="${chamado.title}"></td>
-                                <td th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}"></td>
-                                <td th:text="${chamado.description}"></td>
-                                <td th:text="${chamado.status}"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+	<div class="wrapper">
+		<div class="sidebar">
+			<h2>Lady Tech</h2>
+			<ul>
+				<li><a href="#">Bem Vindo(a): <br><i class="fas fa-user"></i><span th:text="${session.name}"></span></a>
+				</li>
+				<li><a th:href="@{/user/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+				<li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a></li>
+				<li><a th:href="@{/user/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
+				<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container custom-container">
+		<div class="row">
+			<div class="col s12 offset-s1">
+				<div class="card custom-card">
+					<div class="card-content">
+						<div class="row">
+							<h1 class="font-titles">Chamados</h1>
+							<table>
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Título</th>
+										<th>Data e Hora</th>
+										<th>Descrição</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody th:each="chamado : ${chamados}">
+									<tr>
+										<td th:text="${chamado.idCalled}"></td>
+										<td th:text="${chamado.title}"></td>
+										<td th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}">
+										</td>
+										<td th:text="${chamado.description}"></td>
+										<td th:text="${chamado.status}"></td>
+									</tr>
+								</tbody>
+							</table>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-
-<!-- CARD TERMINA AQUI -->
 </body>
 
 </html>
-

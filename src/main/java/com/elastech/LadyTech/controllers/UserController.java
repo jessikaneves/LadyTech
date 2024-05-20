@@ -3,8 +3,6 @@ package com.elastech.LadyTech.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import com.elastech.LadyTech.models.Technical;
-import com.elastech.LadyTech.repositories.TechnicalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,10 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.elastech.LadyTech.models.Called;
+import com.elastech.LadyTech.models.Technical;
 import com.elastech.LadyTech.repositories.CalledRepository;
+import com.elastech.LadyTech.repositories.TechnicalRepository;
 
 @Controller
 @RequestMapping("/user")
@@ -27,13 +26,13 @@ public class UserController {
 	private CalledRepository calledRepository;
 	@Autowired
 	private TechnicalRepository technicalRepository;
+
 	@GetMapping("/consult-called")
 	private String getAllCalled(Model model) {
 		List<Called> called = calledRepository.findAll();
 		model.addAttribute("chamados", called);
 		return "usuario-historico";
 	}
-
 
 	@GetMapping("/{idCalled}")
 	private Called getCalledById(@PathVariable long idCalled) {
@@ -60,6 +59,3 @@ public class UserController {
 	}
 
 }
-
-
-

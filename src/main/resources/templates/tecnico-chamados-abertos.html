@@ -3,85 +3,92 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamados Abertos</title>
-    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/js/styles.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chamados Abertos</title>
+	<link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="/js/styles.js"></script>
 </head>
+
 <body>
 
-<!-- MENU LATERAL COMEÇA AQUI -->
-<body>
-
-<!-- MENU LATERAL COMEÇA AQUI -->
-<div class="wrapper">
-    <div class="sidebar">
-        <h2>Lady Tech</h2>
-        <ul>
-            <li><a th:href="@{/technical/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
-            <li><a th:href="@{/technical/consult-called-open}"><i class="fas fa-search"></i>Chamados Abertos</a></li>
-            <li><a th:href="@{/technical/consult-called}"><i class="fas fa-headset"></i>Histórico Chamados</a></li>
-            <li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
-        </ul>
-    </div>
-</div>
-<!-- MENU LATERAL TERMINA AQUI -->
-
-<!-- CARD COMEÇA AQUI -->
-<div class="container custom-container">
-    <div class="row">
-        <div class="col s12 offset-s1">
-            <div class="card custom-card">
-                <div class="card-content">
-                    <div class="row">
-                        <h1 class="font-titles">Chamados Abertos</h1>
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Título</th>
-                                <th>Data e Hora</th>
-                                <th>Descrição</th>
-                                <th>Status</th>
-                                <th for="status"> Atualizar Status </th>
-                            </tr>
-                            </thead>
-                            <tbody th:each="chamado : ${chamados}">
-                            <tr>
-                                <td th:text="${chamado.title}"></td>
-                                <td th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}"></td>
-                                <td th:text="${chamado.description}"></td>
-                                <td th:text="${chamado.status}"></td>
-                                <th ><!-- Atualizar o status do chamado pelo tecnico -->
-                                    <form th:method="post" class="flip-card__form" th:action="@{/called/update/status/{id}(id=${chamado.idCalled})}">
-                                        <input type="hidden" name="_method" value="patch"/>
-                                        <select id="status" name="status" class="tecnico" >
-                                            <option th:selected="${chamado.status=='Em atendimento'}" th:value="'Em atendimento'">Em atendimento</option>
-                                            <option th:selected="${chamado.status=='Escalado para outro setor'}" th:value="'Escalado para outro setor'">Escalado para outro setor</option>
-                                            <option th:selected="${chamado.status=='Finalizado'}" th:value="'Finalizado'">Finalizado</option>
-                                        </select>
-                                        <button type="submit">enviar</button>
-                                    </form>
-                                </th>
-                            </tbody>
-                        </table>
-                        <!-- INSIRA AQUI O QUE VOCÊ QUER ADICIONAR -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<body>
 
 
-<!-- CARD TERMINA AQUI -->
-</body>
+		<div class="wrapper">
+			<div class="sidebar">
+				<h2>Lady Tech</h2>
+				<ul>
+					<li><a href="#">Bem Vindo(a): <br><i class="fas fa-user"></i><span
+								th:text="${session.name}"></span></a></li>
+					<li><a th:href="@{/technical/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+					<li><a th:href="@{/technical/consult-called-open}"><i class="fas fa-search"></i>Chamados Abertos</a>
+					</li>
+					<li><a th:href="@{/technical/consult-called}"><i class="fas fa-headset"></i>Histórico Chamados</a>
+					</li>
+					<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="container custom-container">
+			<div class="row">
+				<div class="col s12 offset-s1">
+					<div class="card custom-card">
+						<div class="card-content">
+							<div class="row">
+								<h1 class="font-titles">Chamados Abertos</h1>
+								<table>
+									<thead>
+										<tr>
+											<th>Título</th>
+											<th>Data e Hora</th>
+											<th>Descrição</th>
+											<th>Status</th>
+											<th for="status"> Atualizar Status </th>
+										</tr>
+									</thead>
+									<tbody th:each="chamado : ${chamados}">
+										<tr>
+											<td th:text="${chamado.title}"></td>
+											<td
+												th:text="${#temporals.format(chamado.registerDate, 'dd/MM/yyyy, HH:mm')}">
+											</td>
+											<td th:text="${chamado.description}"></td>
+											<td th:text="${chamado.status}"></td>
+											<td>
+												<form th:method="post" class="flip-card__form"
+													th:action="@{/called/update/status/{id}(id=${chamado.idCalled})}">
+													<input type="hidden" name="_method" value="patch" />
+													<select id="status" name="status" class="tecnico">
+														<option
+															th:selected="${chamado.status=='Aguardando atendimento'}"
+															th:value="'Aguardando atendimento'">Aguardando Técnico
+														</option>
+														<option th:selected="${chamado.status=='Em atendimento'}"
+															th:value="'Em atendimento'">Em atendimento</option>
+														<option th:selected="${chamado.status=='Finalizado'}"
+															th:value="'Finalizado'">Finalizado</option>
+													</select>
+													<button type="submit">Enviar</button>
+												</form>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 
 </html>

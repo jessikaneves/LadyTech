@@ -31,15 +31,14 @@ public class User {
 	@Column
 	private String phone;
 
-	@Column(name = "register_user", updatable = false)
-	@CreationTimestamp
-	private Timestamp registerDate;
-
 	@Column
 	private String userName;
 
 	@Column
 	private String email;
+
+	@Column
+	private String departament;
 
 	@Column
 	private String password;
@@ -50,6 +49,10 @@ public class User {
 	@Column
 	@Enumerated(EnumType.STRING)
 	private UserType userType = UserType.USER;
+
+	@Column(name = "register_user", updatable = false)
+	@CreationTimestamp
+	private Timestamp registerDate;
 
 	@ManyToOne
 	@JoinColumn(name = "id_administrator")
@@ -86,14 +89,6 @@ public class User {
 		this.phone = phone;
 	}
 
-	public Timestamp getRegisterDate() {
-		return registerDate;
-	}
-
-	public void setRegisterDate(Timestamp registerDate) {
-		this.registerDate = registerDate;
-	}
-
 	public String getUserName() {
 		return userName;
 	}
@@ -108,6 +103,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getDepartament() {
+		return departament;
+	}
+
+	public void setDepartament(String departament) {
+		this.departament = departament;
 	}
 
 	public String getPassword() {
@@ -132,6 +135,14 @@ public class User {
 
 	public void setUserType(UserType userType) {
 		this.userType = userType;
+	}
+
+	public Timestamp getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Timestamp registerDate) {
+		this.registerDate = registerDate;
 	}
 
 	public Administrator getAdministrator() {
