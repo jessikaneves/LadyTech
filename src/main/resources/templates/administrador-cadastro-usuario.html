@@ -1,93 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" type="text/css" href="\styles\administrador-cadastro-usuario.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <title>LadyTech</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastrar Usuário</title>
+	<link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-<nav class="menu-lateral">
-    <div class="btn-expandir">
-        <i class="bi bi-list" id="btn-exp"></i>
-    </div>
 
-    <ul>
-        <li class="item">
-            <a href="#">
-                <span class="icon"><i class="bi bi-person-circle"></i></span>
-                <span class="txt-link">User logado</span>
-            </a>
-        </li>
+	<div class="wrapper">
+		<div class="sidebar">
+			<h2>Lady Tech</h2>
+			<ul>
+				<li><a href="#">Bem Vindo(a): <br><i class="fas fa-user"></i><span th:text="${session.name}"></span></a>
+				</li>
+				<li><a th:href="@{/called/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+				<li><a th:href="@{/administrator/create-user}"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
+				</li>
+				<li><a th:href="@{/administrator/create-technician}"><i class="fas fa-user-plus"></i>Cadastrar
+						Técnico</a></li>
+				<li><a th:href="@{/administrator/consult-users}"><i class="fas fa-search"></i>Consultar Usuários</a>
+				</li>
+				<li><a th:href="@{/called/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
+				<li><a th:href="@{/administrator/graphic-administrator}"><i class="fas fa-chart-pie"></i>Gráficos</a>
+				</li>
+				<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+			</ul>
+		</div>
+	</div>
 
-        <li class="item-menu ativo">
-            <a href="administrador-usuarios.html">
-                <span class="icon"><i class="bi bi-search-heart"></i></span>
-                <span class="txt-link">Usuários</span>
-            </a>
-        </li>
+	<div class="container custom-container">
+		<div class="row">
+			<div class="col s12 offset-s1">
+				<div class="card custom-card">
+					<div class="card-content">
+						<div class="row">
 
-        <li class="item-menu">
-            <a href="" >
-                <span class="icon"><i class="bi bi-pencil-square"></i></span>
-                <span class="txt-link">Cadastro</span>
-            </a>
-        </li>
+							<h1 class="font-titles">Cadastrar Usuário</h1>
+							<form action="#" th:action="@{/administrator/create-user}" th:object="${user}"
+								method="post">
+								<div>
+									<label for="name">Nome Completo:</label>
+									<input type="text" id="name" name="name" th:field="*{name}" required>
+								</div>
 
-        <li class = "drop">
-        <ul class="dropdownmenu">
-            <li><a href="http://localhost:63342/LadyTech/src/main/resources/templates/cadastrouser.html?_ijt=fcml8clf2ja3frv1sc9r47feqr&_ij_reload=RELOAD_ON_SAVE">Usuário</a></li>
-            <li><a href="http://localhost:63342/LadyTech/src/main/resources/templates/cadastro-tech.html?_ijt=klokcelaovvff7k4k0j1b9la8f&_ij_reload=RELOAD_ON_SAVE#">Técnico</a></li>
-        </ul>
-        </li>
+								<div>
+									<label for="phone">Telefone:</label>
+									<input type="text" id="phone" name="phone" th:field="*{phone}" required>
+								</div>
 
-        <li class="item-menu">
-            <a href="#">
-                <span class="icon"><i class="bi bi-bar-chart"></i></span>
-                <span class="txt-link">Gráfico</span>
-            </a>
-        </li>
-        <li class="item-menu">
-            <a href="index.html">
-                <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                <span class="txt-link">Sair</span>
-            </a>
-        </li>
-    </ul>
+								<div>
+									<label for="userName">Nome de Usuário:</label>
+									<input type="text" id="userName" name="userName" th:field="*{userName}" required>
+								</div>
 
-</nav>
+								<div>
+									<label for="email">Email:</label>
+									<input type="email" id="email" name="email" th:field="*{email}" required>
+								</div>
 
+								<div>
+									<label for="departament">Departamento:</label>
+									<input type="text" id="departament" name="departament" th:field="*{departament}"
+										required>
+								</div>
 
-<script src="/animation/menu.js"></script>
+								<div>
+									<label for="password">Senha:</label>
+									<input type="password" id="password" name="password" th:field="*{password}"
+										required>
+								</div>
 
-<div class="form-container">
-<div class="flip-card__front">
-    <div class="flip-card__inner">
-        <div class="wrapper">
-            <div class="card-switch">
-                <label class="switch">
-            <div class="title">Cadastrar Usuário</div>
-            <form class="flip-card__form" action="">
-                <input class="flip-card__input" name="email" placeholder="Nome" type="text">
-                <input class="flip-card__input" name="password" placeholder="E-mail" type="email">
-                <input class="flip-card__input" name="email" placeholder="Telefone" type="tel">
-                <input class="flip-card__input" name="email" placeholder="Senha" type="password">
+								<label for="administrator">Administrator:</label>
+								<input type="text" id="administrator" name="administrator" th:field="*{administrator}"
+									required><br>
 
-                <button class="flip-card__btn">Salvar</button>
-            </form>
-
-            </label>
-            </div>
-
-        </div>
-        </div>
-
-    </div>
-
-</div>
-
+								<div style="text-align: center;">
+									<input class="btn-toggle"
+										style="width: 18%; height: 50px; text-align: center;  margin: 10px auto;"
+										type="submit" value="Salvar">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

@@ -1,8 +1,6 @@
 package com.elastech.LadyTech.models;
 
-import java.security.Timestamp;
-
-import org.hibernate.annotations.CreationTimestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,8 +22,7 @@ public class Called {
 	private String title;
 
 	@Column(name = "register_called", updatable = false)
-	@CreationTimestamp
-	private Timestamp registerDate;
+	private LocalDateTime registerDate;
 
 	@Column
 	private String priority;
@@ -35,19 +32,30 @@ public class Called {
 
 	@Column
 	private String status;
-	
-	@Column 
+
+	@Column
 	private String departament;
 
-	@ManyToOne
-	@JoinColumn(name = "id_user")
-	private User user;
+	@Column(name = "name_technical")
+	private String technicalName;
 
 	@ManyToOne
 	@JoinColumn(name = "id_technical")
 	private Technical technical;
 
+	@ManyToOne
+	@JoinColumn(name = "id_user")
+	private User user;
+
+	@Column(name = "name_user")
+	private String userName;
+
+	@Column(name = "departamento_user")
+	private String departamentName;
+
 	public Called() {
+		this.registerDate = LocalDateTime.now();
+
 	}
 
 	public long getIdCalled() {
@@ -66,12 +74,12 @@ public class Called {
 		this.title = title;
 	}
 
-	public Timestamp getRegisterDate() {
+	public LocalDateTime getRegisterDate() {
 		return registerDate;
 	}
 
-	public void setRegisterDate(Timestamp registerDate) {
-		this.registerDate = registerDate;
+	public void setRegisterDate(LocalDateTime registerDate) {
+		this.registerDate = LocalDateTime.now();
 	}
 
 	public String getPriority() {
@@ -98,12 +106,20 @@ public class Called {
 		this.status = status;
 	}
 
-	public User getUser() {
-		return user;
+	public String getDepartament() {
+		return departament;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setDepartament(String departament) {
+		this.departament = departament;
+	}
+
+	public String getTechnicalName() {
+		return technicalName;
+	}
+
+	public void setTechnicalName(String technicalName) {
+		this.technicalName = technicalName;
 	}
 
 	public Technical getTechnical() {
@@ -112,6 +128,22 @@ public class Called {
 
 	public void setTechnical(Technical technical) {
 		this.technical = technical;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

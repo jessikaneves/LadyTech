@@ -1,73 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-BR"  xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="\styles\usuario-novo-chamado.css"/>
-    <title>Novo chamado</title>
-<body>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<title>LadyTech</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Novo Chamado</title>
+	<link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<nav class="menu-lateral">
-    <div class="btn-expandir">
-        <i class="bi bi-list" id="btn-exp"></i>
-    </div>
-
-    <ul>
-        <li class="item-menu">
-            <a href="#">
-                <span class="icon"><i class="bi bi-person-circle"></i></span>
-                <span class="txt-link">User logado</span>
-            </a>
-        </li>
-        <br>
-        <br>
-        <li class="item-menu">
-            <a href="usuario-historico.html">
-                <span class="icon"><i class="bi bi-table"></i></span>
-                <span class="txt-link">Histórico</span>
-            </a>
-        </li>
-
-        <li class="item-menu">
-            <a href="usuario-novo-chamado.html">
-                <span class="icon"><i class="bi bi-window-plus"></i></span>
-                <span class="txt-link">Novo chamado</span>
-            </a>
-        </li>
-        <br>
-        <br>
-        <li class="item-menu">
-            <a href="index.html">
-                <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                <span class="txt-link">Sair</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-<script src="/animation/menu.js"></script>
-<div class="form-container">
-    <div class="flip-card__front">
-        <div class="flip-card__inner">
-            <div class="wrapper">
-                <div class="card-switch">
-                    <label class="switch">
-                        <div class="title">Novo Chamado</div>
-                        <form class="flip-card__form" action="" th:action="@{/save}" method="post">
-                            <input class="flip-card__input" name="id" placeholder="ID" type="text" th:value="${id}">
-                            <input class="flip-card__input" name="user" placeholder="User" type="email" th:value="${user}">
-                            <input class="flip-card__input" name="title" placeholder="Titulo" type="text" th:value="${title}">
-                            <input class="flip-card__input" name="date" placeholder="Data/Hora" type="date" th:value="${date}">
-                            <input class="flip-card_description_input" name="description" placeholder="Descrição" type="text" th:value="${description}">
-                            <button class="flip-card__btn" type="submit">Salvar</button>
-                        </form>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<body>
+	<div class="wrapper">
+		<div class="sidebar">
+			<h2>Lady Tech</h2>
+			<ul>
+				<li><a href="#">Bem Vindo(a): <br><i class="fas fa-user"></i><span th:text="${session.name}"></span></a>
+				</li>
+				<li><a th:href="@{/user/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+				<li><a th:href="@{/called/create-called}"><i class="fa fa-plus"></i> Novo chamado</a></li>
+				<li><a th:href="@{/user/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
+				<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container custom-container">
+		<div class="row">
+			<div class="col s12 offset-s1">
+				<div class="card custom-card">
+					<div class="card-content">
+						<div class="row">
+							<h1 class="font-titles">Novo Chamado</h1>
+							<form class="flip-card__form" action="" th:action="@{/called/create-called}" method="post">
+								<input class="flip-card__input" name="title" placeholder="Titulo" type="text"
+									th:value="${title}">
+								<input class="flip-card_description_input" name="description" placeholder="Descrição"
+									type="text" th:value="${description}">
+								<input class="flip-card_description_input" name="user" placeholder="Id Usuário"
+									type="text" th:value="${user}">
+								<div style="text-align: center;">
+									<button class="btn-toggle"
+										style="width: 18%; height: 50px; text-align: center;  margin: 10px auto;"
+										type="submit">Salvar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>

@@ -1,116 +1,329 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualização de usuários</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="\styles\administrador-usuarios.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gráficos</title>
+	<link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/styles-padrao.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
+
 <body>
-<nav class="menu-lateral">
-    <div class="btn-expandir">
-        <i class="bi bi-list"></i>
-    </div>
+	<div class="wrapper">
+		<div class="sidebar">
+			<h2>Lady Tech</h2>
+			<ul>
+				<li><a href="#">Bem Vindo(a): <br><i class="fas fa-user"></i><span th:text="${session.name}"></span></a>
+				</li>
+				<li><a th:href="@{/called/consult-called}"><i class="fas fa-home"></i>Inicio</a></li>
+				<li><a th:href="@{/administrator/create-user}"><i class="fas fa-user-plus"></i>Cadastrar Usuário</a>
+				</li>
+				<li><a th:href="@{/administrator/create-technician}"><i class="fas fa-user-plus"></i>Cadastrar
+						Técnico</a></li>
+				<li><a th:href="@{/administrator/consult-users}"><i class="fas fa-search"></i>Consultar Usuários</a>
+				</li>
+				<li><a th:href="@{/called/consult-called}"><i class="fas fa-headset"></i>Chamados</a></li>
+				<li><a th:href="@{/administrator/graphic-administrator}"><i class="fas fa-chart-pie"></i>Gráficos</a>
+				</li>
+				<li><a th:href="@{/authentication/logout}"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+			</ul>
+		</div>
+	</div>
 
-    <ul>
-        <li class="item">
-            <a href="#">
-                <span class="icon"><i class="bi bi-person-circle"></i></span>
-                <span class="txt-link">User logado</span>
-            </a>
-        </li>
-        <br>
-        <li class="item-menu ativo">
-            <a href="administrador-usuarios.html">
-                <span class="icon"><i class="bi bi-table"></i></span>
-                <span class="txt-link">Usuários</span>
-            </a>
-        </li>
-        <li class="item-menu ativo">
-            <a href="#">
-                <span class="icon"><i class="bi bi-pencil-square"></i></span>
-                <span class="txt-link">Cadastro</span>
-            </a>
-        </li>
-        <li class="item-menu">
-            <a href="#">
-                <span class="icon"><i class="bi bi-bar-chart"></i></span>
-                <span class="txt-link">Gráfico</span>
-            </a>
-        </li>
-        <br>
-        <li class="item-menu">
-            <a href="index.html">
-                <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
-                <span class="txt-link">Sair</span>
-            </a>
-        </li>
-    </ul>
+	<div class="container custom-container">
+		<div class="row">
+			<div class="col s12 offset-s1">
+				<div class="card custom-card">
+					<div class="card-content">
+						<div class="row">
+							<div class="container mt-5">
+								<div class="row justify-content-center">
+									<div class="col-md-8">
+										<div class="table-container mt-5">
+											<h1 class="font-titles">
+												Lista de Funcionários
+											</h1>
 
-</nav>
-<div class="mt-5">
-</div>
+											<h2 class="font-sub-titles-02">Usuários</h2>
+											<table class="table">
+												<thead class="tabela-cabecalho">
+													<tr>
+														<th>ID</th>
+														<th>Nome Completo</th>
+														<th>Telefone</th>
+														<th>Usuário</th>
+														<th>E-mail</th>
+														<th>Departamento</th>
+														<th>Status</th>
+														<th>Editar</th>
+														<th>Desativar</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="user : ${users}"
+														th:class="${!user.active ? 'inactive' : ''}">
+														<td th:text="${user.idUser}"
+															th:class="${!user.active ? 'inactive' : ''}"></td>
+														<td th:text="${user.name}"
+															th:class="${!user.active ? 'inactive' : ''}"></td>
+														<td th:text="${user.phone}"
+															th:class="${!user.active ? 'inactive' : ''}"></td>
+														<td th:text="${user.userName}"
+															th:class="${!user.active ? 'inactive' : ''}"></td>
+														<td th:text="${user.email}"
+															th:class="${!user.active ? 'inactive' : ''}"></td>
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="table-container mt-5">
-                <h1 class="mb-3">
-                    Chamados em aberto
-                </h1>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Setor</th>
-                        <th>Tipo de usuário</th>
-                        <th>E-mail</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="chamado : ${chamados}">
-                        <td th:text="${usuario.id}">1</td>
-                        <td th:text="${usuario.nome}">Ingrid</td>
-                        <td th:text="${usuario.setor}">Administração</td>
-                        <td th:text="${usuario.tipo_usuario}">Admin</td>
-                        <td th:text="${usuario.email}">ingrid@soulcode.com</td>
-                        <td><button type="button" class="btn-editar" th:text="${usuario.descricao}">Editar</button></td>
-                        <td><button type="button" class="btn-excluir" th:text="${chamado.status}">Excluir</button></td>
-                    </tr>
-                    </tr>
-                    <tr th:each="chamado : ${chamados}">
-                        <td th:text="${usuario.id}">2</td>
-                        <td th:text="${usuario.nome}">Ké</td>
-                        <td th:text="${usuario.setor}">TI</td>
-                        <td th:text="${usuario.tipo_usuario}">Técnico</td>
-                        <td th:text="${usuario.email}">ke@soulcode.com</td>
-                        <td><button type="button" class="btn-editar" th:text="${usuario.descricao}">Editar</button></td>
-                        <td><button type="button" class="btn-excluir" th:text="${chamado.status}">Excluir</button></td>
-                    </tr>
-                    <tr th:each="chamado : ${chamados}">
-                        <td th:text="${usuario.id}">2</td>
-                        <td th:text="${usuario.nome}">Jéssika</td>
-                        <td th:text="${usuario.setor}">Operações</td>
-                        <td th:text="${usuario.tipo_usuario}">Usuário</td>
-                        <td th:text="${usuario.email}">jessika@soulcode.com</td>
-                        <td><button type="button" class="btn-editar" th:text="${usuario.descricao}">Editar</button></td>
-                        <td><button type="button" class="btn-excluir" th:text="${chamado.status}">Excluir</button></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+														<td th:text="${user.departament}"
+															th:class="${!user.active ? 'inactive' : ''}"></td>
+
+														<td th:class="${!user.active ? 'inactive' : ''}">
+															<span th:text="${user.active ? 'Ativo' : 'Inativo'}"></span>
+														</td>
+
+														<td><a href="#" class="btn-editar-user">Editar</a></td>
+
+														<td>
+															<button class="btn-toggle" onclick="toggleStatusUser(this)"
+																th:attr="data-id=${user.idUser}"
+																th:text="${user.active ? 'Desativar' : 'Ativar'}">
+															</button>
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+
+											<h2 class="font-sub-titles-02">Técnicos</h2>
+											<table class="table">
+												<thead class="tabela-cabecalho">
+													<tr>
+														<th>ID</th>
+														<th>Nome Completo</th>
+														<th>Telefone</th>
+														<th>Usuário</th>
+														<th>E-mail</th>
+														<th>Status</th>
+														<th>Editar</th>
+														<th>Desativar</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="technician : ${technicians}"
+														th:class="${!technician.active ? 'inactive' : ''}">
+														<td th:text="${technician.idTechnical}"
+															th:class="${!technician.active ? 'inactive' : ''}"></td>
+														<td th:text="${technician.name}"
+															th:class="${!technician.active ? 'inactive' : ''}"></td>
+														<td th:text="${technician.phone}"
+															th:class="${!technician.active ? 'inactive' : ''}"></td>
+														<td th:text="${technician.userName}"
+															th:class="${!technician.active ? 'inactive' : ''}"></td>
+														<td th:text="${technician.email}"
+															th:class="${!technician.active ? 'inactive' : ''}"></td>
+
+														<td th:class="${!technician.active ? 'inactive' : ''}">
+															<span
+																th:text="${technician.active ? 'Ativo' : 'Inativo'}"></span>
+														</td>
+														<td><a href="#" class="btn-editar-tecnico">Editar</a></td>
+
+														<td>
+															<button class="btn-toggle"
+																onclick="toggleStatusTechnician(this)"
+																th:attr="data-id=${technician.idTechnical}"
+																th:text="${technician.active ? 'Desativar' : 'Ativar'}">
+															</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="editUserModal" class="modal" style="font-family: 'Open Sans', sans-serif;">
+		<div class="modal-content">
+			<h4 style="text-align: center;">Editar Usuário</h4>
+			<form id="editUserForm" method="post">
+				<input type="hidden" name="_method" value="put">
+				<input type="hidden" id="editUserId" name="idUser">
+				<input type="hidden" id="idAdministrator" name="idAdministrator">
+
+				<div class="input-field">
+					<input id="editUserName" type="text" name="name" required>
+					<label for="editUserName">Nome</label>
+				</div>
+				<div class="input-field">
+					<input id="editUserPhone" type="text" name="phone" required>
+					<label for="editUserPhone">Telefone</label>
+				</div>
+				<div class="input-field">
+					<input id="editUserUserName" type="text" name="userName" required>
+					<label for="editUserUserName">Nome do Usuário</label>
+				</div>
+				<div class="input-field">
+					<input id="editUserEmail" type="email" name="email" required>
+					<label for="editUserEmail">E-mail</label>
+				</div>
+
+				<div class="input-field">
+					<input id="editUserDepartament" type="text" name="Departament" required>
+					<label for="editUserDepartament">Departamento</label>
+				</div>
+
+				<div class="modal-footer btn-toggle" style="width: 60%; margin: 0 auto;">
+					<button type="submit" class="modal-close waves-effect waves-green btn"
+						style="width: 40%; height: 50px; text-align: center;">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="editTechnicianModal" class="modal" style="font-family: 'Open Sans', sans-serif;">
+		<div class="modal-content">
+			<h4 style="text-align: center;">Editar Técnico</h4>
+
+			<form id="editTechnicianForm" method="post">
+				<input type="hidden" name="_method" value="put">
+				<input type="hidden" id="editTechnicianId" name="idTechnical">
+				<input type="hidden" id="idAdministrator" name="idAdministrator">
+
+				<div class="input-field">
+					<input id="editTechnicianName" type="text" name="name" required>
+					<label for="editTechnicianName">Nome</label>
+				</div>
+				<div class="input-field">
+					<input id="editTechnicianPhone" type="text" name="phone" required>
+					<label for="editTechnicianPhone">Telefone</label>
+				</div>
+				<div class="input-field">
+					<input id="editTechnicianUserName" type="text" name="userName" required>
+					<label for="editTechnicianUserName">Nome de Usuário</label>
+				</div>
+				<div class="input-field">
+					<input id="editTechnicianEmail" type="email" name="email" required>
+					<label for="editTechnicianEmail">E-mail</label>
+				</div>
+				<div class="modal-footer btn-toggle" style="width: 60%; margin: 0 auto;">
+					<button type="submit" class="modal-close waves-effect waves-green btn"
+						style="width: 40%; height: 50px; text-align: center;">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var elems = document.querySelectorAll('.modal');
+			var instances = M.Modal.init(elems);
+		});
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const editButtons = document.querySelectorAll('.btn-editar-user');
+			const modal = document.querySelector('#editUserModal');
+			const instance = M.Modal.getInstance(modal);
+
+			editButtons.forEach(button => {
+				button.addEventListener('click', function () {
+					const row = this.closest('tr');
+					const userId = row.children[0].innerText;
+					const userName = row.children[1].innerText;
+					const userPhone = row.children[2].innerText;
+					const userUserName = row.children[3].innerText;
+					const userEmail = row.children[4].innerText;
+
+					document.querySelector('#editUserId').value = userId;
+					document.querySelector('#editUserName').value = userName;
+					document.querySelector('#editUserPhone').value = userPhone;
+					document.querySelector('#editUserUserName').value = userUserName;
+					document.querySelector('#editUserEmail').value = userEmail;
+
+					document.querySelector('#editUserForm').action = `/administrator/update-user/${userId}`;
+
+					M.updateTextFields();
+					instance.open();
+				});
+			});
+		});
+	</script>
+
+	<script>
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const editButtonsTecnico = document.querySelectorAll('.btn-editar-tecnico');
+			const modalTecnico = document.querySelector('#editTechnicianModal');
+			const instanceTecnico = M.Modal.getInstance(modalTecnico);
+
+			editButtonsTecnico.forEach(button => {
+				button.addEventListener('click', function () {
+					const row = this.closest('tr');
+					const idTechnical = row.children[0].innerText;
+					const technicianName = row.children[1].innerText;
+					const technicianPhone = row.children[2].innerText;
+					const technicianUserName = row.children[3].innerText;
+					const technicianEmail = row.children[4].innerText;
+
+					document.querySelector('#editTechnicianId').value = idTechnical;
+					document.querySelector('#editTechnicianName').value = technicianName;
+					document.querySelector('#editTechnicianPhone').value = technicianPhone;
+					document.querySelector('#editTechnicianUserName').value = technicianUserName;
+					document.querySelector('#editTechnicianEmail').value = technicianEmail;
+
+					document.querySelector('#editTechnicianForm').action = `/administrator/update-technician/${idTechnical}`;
+
+					M.updateTextFields();
+					instanceTecnico.open();
+				});
+			});
+		});
+	</script>
+
+	<script th:inline="javascript">
+		function toggleStatusTechnician(elemento) {
+			var idTechnical = elemento.getAttribute("data-id");
+
+			fetch('/administrator/update-status-technical?idTechnical=' + idTechnical, {
+				method: 'POST'
+			})
+				.then(() => {
+					setTimeout(() => {
+						location.reload();
+					}, 10);
+				});
+		}
+	</script>
+
+	<script th:inline="javascript">
+		function toggleStatusUser(elemento) {
+			var idUser = elemento.getAttribute("data-id");
+
+			fetch('/administrator/update-status-user?idUser=' + idUser, {
+				method: 'POST'
+			})
+				.then(() => {
+					setTimeout(() => {
+						location.reload();
+					}, 10);
+				});
+		}
+	</script>
+
 </body>
+
 </html>
